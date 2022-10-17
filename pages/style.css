@@ -1,0 +1,183 @@
+body{
+    width:100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+   }
+header {
+    
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.413);
+   
+}
+.main{
+background-color: rgb(250, 250, 250);
+width:auto;
+padding-left: 20px;
+margin-left: 220px;
+margin-top:-600px;
+}
+
+
+@media(max-width:1024px){
+.main{
+  background-color: rgb(250, 250, 250);
+  width:auto;
+  display: block;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top:5px;
+  }
+}
+
+.sidenav{   
+height:610px;
+display: block;
+width: 214px;
+background-color: rgb(187, 179, 179);
+padding-top: 20px;
+padding-left: 20px;
+   
+}
+@media(max-width:1024px){
+div.sidenav{   
+display: none;
+ 
+     }
+    }
+
+.footer{
+    text-align: center;
+  display: block;
+    padding: 50px;
+    margin-top:423px;
+    margin-bottom: 0px;
+    background-color: DarkSalmon;
+    color: white;
+    z-index:9999;
+   
+}
+@media(max-width:1024px){
+.footer{
+  text-align: center;
+display: block;
+  padding: 50px;
+  margin-top:617px;
+  background-color: DarkSalmon;
+  color: white;
+  z-index:9999;
+ 
+}
+}
+
+
+/*   mega menu*/
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+
+  
+  .navbar {
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .navbar a {
+   font-size: 16px;
+   display: inline-flex;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 15px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+   
+    text-align: center;
+    display: inline-flex;
+    margin-top: 20px;
+   
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    margin-top: 50px;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content .header {
+    background: red;
+    padding: 16px;
+    color: white;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float:left;
+    display: block;
+width: 33.33%;
+ padding: 10px;
+    background-color: #ccc;
+    height: 250px;
+  }
+  
+  .column a {
+    float: none;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+  
+  .column a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      height: auto;
+    }
+  }
