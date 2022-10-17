@@ -13,15 +13,20 @@
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/header.php');?>
 
     </header>
-    <div class="sidenav">
+<div class="row">
+<div class="sidenav">
     <?php require_once(dirname(dirname(__FILE__)) . '/inc/sidebar.php');?>
 </div>
-<div class ="main">
+    <div class ="main">
     <?php require_once(dirname(dirname(__FILE__)) . '/partials/homework.php');?>
 </div>
+</div>
+
+<div class="footer">
 <footer>
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/footer.php');?>
 </footer>
+</div>
 </body>
 
 
