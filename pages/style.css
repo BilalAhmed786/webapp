@@ -205,12 +205,29 @@ width: 33.33%;
   display:none;
   
 }
-
-.active {
-  background-color: green;
-  color: white;
- 
+.sidenav1 {
+  display:none;
+  
 }
+@media(max-width:770px){
+.sidenav1 {
+  display:block;
+  
+}
+}
+
+.active:after{
+content: "-";
+color: rgb(23, 22, 22);
+padding-left: 63px;
+
+}
+.dropdown-btn:after{
+  content: "+";
+  color: rgb(23, 22, 22);
+  padding-left: 63px;
+}
+
 .dropdown-btn
 {
   padding: 6px 8px 6px 16px;
@@ -225,9 +242,10 @@ width: 33.33%;
   cursor: pointer;
   outline: none;
 }
+
 .dropdown-container {
   display: none;
-  background-color: #262626;
+  background-color: #fffdfd;
   padding-left: 8px;
 }
 
@@ -250,7 +268,7 @@ body {
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: rgb(242, 242, 242); /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -269,7 +287,7 @@ body {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav1 a:hover {
-  color: #f1f1f1;
+  color: #0b0101;
 }
 
 /* Position and style the close button (top right corner) */

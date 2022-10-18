@@ -18,6 +18,7 @@ var i;
   for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
       this.classList.toggle("active");
+      this.classList.toggle("dropdown-btn");
       var dropdownContent = this.nextElementSibling;
       if (dropdownContent.style.display === "block") {
         dropdownContent.style.display = "none";
@@ -29,8 +30,8 @@ var i;
 
   $(document).ready(function(){
     $(".closebtn").click(function(){
-      $(".dropdown-container").css('display','none');
-    });
+      $('.active').removeClass('active').addClass('dropdown-btn');
+      $(".dropdown-container").hide();
+});
   });
 
-  

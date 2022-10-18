@@ -36,7 +36,15 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
 <a class="dropdown-btn">Dropdown 
-    <i class="fa fa-caret-down"></i>
+   
+</a>
+  <div class="dropdown-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+  <a class="dropdown-btn">Dropdown 
+   
 </a>
   <div class="dropdown-container">
     <a href="#">Link 1</a>
