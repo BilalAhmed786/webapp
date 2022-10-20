@@ -205,16 +205,8 @@ width: 33.33%;
   display:none;
   
 }
-.sidenav1 {
-  display:none;
-  
-}
-@media(max-width:770px){
-.sidenav1 {
-  display:block;
-  
-}
-}
+
+
 
 .active:after{
 content: "-";
@@ -252,8 +244,9 @@ padding-left: 63px;
 @media(max-width:770px){
 .navigaionbar {
   display: block;
-  text-align: center;
+  text-align:left;
   padding-top: 22px;
+  padding-left: 15px;
   
  }
 }

@@ -1,7 +1,9 @@
+<div class="searchresulttitle">
 <h1>
 this is main page heading
 </h1>
-
+</div>
+<div class="searchresultcontent"
 <p>
 What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
@@ -78,5 +80,5 @@ It has survived not only five centuries, but also the leap into electronic types
 
 </p>
 
-
+</div>
 

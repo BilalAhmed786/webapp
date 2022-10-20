@@ -1,6 +1,6 @@
 <div class="navbar">
  <a href="http://localhost/webapp/pages/home.php">Home</a>
-  <a href="#news">News</a>
+  <a href="http://localhost/webapp/pages/news.php">News</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>
@@ -29,6 +29,13 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="searchbar">
+<form action="search.php" method="get">
+    <input type="text" name="search" placeholder="Search">
+    <input type="submit" value="search">
+</form>
 </div>
 
 
