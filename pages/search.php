@@ -32,8 +32,12 @@ if (stripos($homedata, $search) == true && (!empty($_GET['search']))) {
     }
     
     else{
-      echo "No result found";
+$search_URL="http://www.google.com/search?q="; // Google Search Query URL  
+if(isset($_GET['searchsubmit']) && (!empty($_GET['search']))){ 
+echo $keywords=$_GET['search'];
+ header("location: ".$search_URL. $keywords);
     }
+  }
       ?>
     </div>
     
@@ -49,5 +53,3 @@ if (stripos($homedata, $search) == true && (!empty($_GET['search']))) {
 <script src="custom.js"></script>
 </body>
 </html>
-
-

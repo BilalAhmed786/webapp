@@ -34,7 +34,7 @@
 <div class="searchbar">
 <form action="search.php" method="get">
     <input type="text" name="search" placeholder="Search">
-    <input type="submit" value="search">
+    <input type="submit" name="searchsubmit">
 </form>
 </div>
 
