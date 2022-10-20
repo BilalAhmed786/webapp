@@ -24,20 +24,30 @@
  $newsdata =file_get_contents('http://localhost/webapp/partials/newswork.php');
   
    $search = $_GET['search'];
+
+  if((stripos($homedata, $search) == true  && (stripos($newsdata, $search) == true && (!empty($_GET['search']))))){
+    echo "$homedata";
+    echo "$newsdata";
+
+  }
     
-if (stripos($homedata, $search) == true && (!empty($_GET['search']))) {
+elseif (stripos($homedata, $search) == true  &&(!empty($_GET['search']))) {
         echo "$homedata";
-    }elseif(stripos($newsdata, $search) == true && (!empty($_GET['search']))){
+}
+  elseif(stripos($newsdata, $search) == true && (!empty($_GET['search']))){
       echo "$newsdata";
+      
     }
-    
-    else{
+
+
+  else{
 $search_URL="http://www.google.com/search?q="; // Google Search Query URL  
 if(isset($_GET['searchsubmit']) && (!empty($_GET['search']))){ 
 echo $keywords=$_GET['search'];
  header("location: ".$search_URL. $keywords);
     }
   }
+
       ?>
     </div>
     
