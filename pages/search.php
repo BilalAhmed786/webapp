@@ -38,13 +38,16 @@ elseif (stripos($homedata, $search) == true  &&(!empty($_GET['search']))) {
       echo "$newsdata";
       
     }
-
-
+    
   else{
-$search_URL="http://www.google.com/search?q="; // Google Search Query URL  
 if(isset($_GET['searchsubmit']) && (!empty($_GET['search']))){ 
-echo $keywords=$_GET['search'];
- header("location: ".$search_URL. $keywords);
+$keywords=$_GET['search'];
+echo "Result not found if you want <h4>$keywords</h4> search on google then click on link below";echo "</br></br>";
+echo '<a target=\"_blank\"  href = "http://www.google.com/search?q='.$keywords.'" style= text-decoration:none;color:red; >Google</a>';
+
+    }
+    else{
+      echo "Result not found";
     }
   }
 
