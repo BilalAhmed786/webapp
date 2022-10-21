@@ -14,16 +14,22 @@
           <a href="#">Link 1</a>
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
         </div>
         <div class="column">
           <h3>Category 2</h3>
           <a href="#">Link 1</a>
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
         </div>
         <div class="column">
           <h3>Category 3</h3>
           <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
         </div>
@@ -43,7 +49,7 @@
 <body>
 <div class="searchbar">
 <form action="search.php" method="GET">
-    <input type="text" name="search" value= "<?php if(isset($_POST['firstname'])) echo $_POST['firstname'];?>">
+    <input type="text" name="search" required >
     <button type="Submit" name="searchsubmit">Search</button>
 </form>
 </div>

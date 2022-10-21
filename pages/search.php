@@ -17,15 +17,15 @@
 
     <h1> search result for "<?php echo $_GET['search'];?>"</h1>
   <?php
-  $homedata =file_get_contents('http://localhost/webapp/partials/homework.php');
- $homepage='<a href="home.php" style=text-decoration:none;color:red;>HOME</a>';
- $newsdata =file_get_contents('http://localhost/webapp/partials/newswork.php');
- $newspage='<a href="news.php" style=text-decoration:none;color:red;>NEWS</a>';
+$homedata =file_get_contents('http://localhost/webapp/partials/homework.php');
+$homepage='<a href="home.php" style=text-decoration:none;color:red;>HOME</a>';
+$newsdata =file_get_contents('http://localhost/webapp/partials/newswork.php');
+$newspage='<a href="news.php" style=text-decoration:none;color:red;>NEWS</a>';
 $search = $_GET['search'];
 if(isset($_GET['searchsubmit'])){
 if((stripos($homedata, $search) == true  && (stripos($newsdata, $search) == true && (!empty($_GET['search']))))){
-    echo mb_strimwidth("$homedata", 0, 500, "..."),"    ",$homepage;
-   echo mb_strimwidth("$newsdata", 0, 500, "..."),"    ",$newspage;
+  echo mb_strimwidth("$homedata", 0, 500, "..."),"    ",$homepage;
+  echo mb_strimwidth("$newsdata", 0, 500, "..."),"    ",$newspage;
     
 
   }

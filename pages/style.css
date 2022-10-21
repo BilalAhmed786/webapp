@@ -169,7 +169,7 @@ display: none;
 width: 33.33%;
  padding: 10px;
     background-color: #ccc;
-    height: 250px;
+    height: 450px;
   }
   
   .column a {
@@ -316,4 +316,22 @@ body {
   padding-left: 25px;
   padding-right:25px
 
+}
+
+.searchbar{
+  display: inline;
+  float: right;
+  padding-top: 0px;
+  margin-top: -35px;
+  padding-left: 15;
+  padding-right: 5px;
+}
+
+
+
+/* footer working*/
+
+div#footercolumn {
+  width: 24.33%;
+  background-color:yellowgreen;
 }
