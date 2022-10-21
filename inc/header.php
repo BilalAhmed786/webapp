@@ -1,3 +1,4 @@
+
 <div class="navbar">
  <a href="http://localhost/webapp/pages/home.php">Home</a>
   <a href="http://localhost/webapp/pages/news.php">News</a>
@@ -31,12 +32,24 @@
   </div>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 <div class="searchbar">
-<form action="search.php" method="get">
-    <input type="text" name="search" placeholder="Search">
-    <input type="submit" name="searchsubmit">
+<form action="search.php" method="GET">
+    <input type="text" name="search" value= "<?php if(isset($_POST['firstname'])) echo $_POST['firstname'];?>">
+    <button type="Submit" name="searchsubmit">Search</button>
 </form>
 </div>
+</body>
+</html>
+
 
 
 <div id="mySidenav" class="sidenav1">

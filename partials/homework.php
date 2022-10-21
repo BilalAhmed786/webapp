@@ -79,6 +79,5 @@ It has survived not only five centuries, but also the leap into electronic types
   and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum....
 
 </p>
-
 </div>
 

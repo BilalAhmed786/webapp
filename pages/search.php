@@ -9,33 +9,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-<header>
+ <header>
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/header.php');?>
 </header>
-<div class="rows">
-<div class="sidenav">
-    <?php require_once(dirname(dirname(__FILE__)) . '/inc/leftsidebar.php');?>
-</div>
+<div class=searchmain>
+<div class ="searchresult">
 
-    <div class ="main">
     <h1> search result for "<?php echo $_GET['search'];?>"</h1>
   <?php
- $homedata =file_get_contents('http://localhost/webapp/partials/homework.php');
+  $homedata =file_get_contents('http://localhost/webapp/partials/homework.php');
+ $homepage='<a href="home.php" style=text-decoration:none;color:red;>HOME</a>';
  $newsdata =file_get_contents('http://localhost/webapp/partials/newswork.php');
-  
-   $search = $_GET['search'];
-
-  if((stripos($homedata, $search) == true  && (stripos($newsdata, $search) == true && (!empty($_GET['search']))))){
-    echo "$homedata";
-    echo "$newsdata";
+ $newspage='<a href="news.php" style=text-decoration:none;color:red;>NEWS</a>';
+$search = $_GET['search'];
+if(isset($_GET['searchsubmit'])){
+if((stripos($homedata, $search) == true  && (stripos($newsdata, $search) == true && (!empty($_GET['search']))))){
+    echo mb_strimwidth("$homedata", 0, 500, "..."),"    ",$homepage;
+   echo mb_strimwidth("$newsdata", 0, 500, "..."),"    ",$newspage;
+    
 
   }
     
 elseif (stripos($homedata, $search) == true  &&(!empty($_GET['search']))) {
-        echo "$homedata";
+        echo mb_strimwidth("$homedata", 0, 500, "..."),"    ",$homepage;
 }
   elseif(stripos($newsdata, $search) == true && (!empty($_GET['search']))){
-      echo "$newsdata";
+         echo mb_strimwidth("$newsdata", 0, 500, "..."),"    ",$newspage;
       
     }
     
@@ -50,14 +49,10 @@ echo '<a target=\"_blank\"  href = "http://www.google.com/search?q='.$keywords.'
       echo "Result not found";
     }
   }
-
-      ?>
-    </div>
-    
-   <div class="sidenav">
-    <?php require_once(dirname(dirname(__FILE__)) . '/inc/rightsidebar.php');?>
-  </div>
-  </div>
+}
+    ?>  
+</div>
+</div>  
 <div class="footer">
 <footer>
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/footer.php');?>

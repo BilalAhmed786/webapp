@@ -1,9 +1,11 @@
 body{
     width:100%;
+    text-align: justify;
     display: block;
     padding: 0;
     margin: 0;
    }
+
 header {
     
     height: 100px;
@@ -58,7 +60,8 @@ display: none;
 
 .footer{
     text-align: center;
-  display: block;
+    display: block;
+     width: 100%;
     padding: 50px;
     margin-top:7px;
     margin-bottom: 0px;
@@ -302,4 +305,15 @@ body {
 @media screen and (max-height: 450px) {
   .sidenav1 {padding-top: 15px;}
   .sidenav1 a {font-size: 18px;}
+}
+
+
+/*search bar and results */
+
+.searchresult{
+
+  display: block;
+  padding-left: 25px;
+  padding-right:25px
+
 }
