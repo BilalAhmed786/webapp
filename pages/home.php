@@ -10,9 +10,7 @@
 </head>
 <body>
 <header>
-
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/header.php');?>
-
 </header>
 <div class="rows">
 <div class="sidenav">
@@ -31,6 +29,12 @@
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/footer.php');?>
 </footer>
 </div>
+<div class="copyright">
+
+<p>@copyright.com</p>
+
+</div>
+
 <script src="custom.js"></script>
 </body>
 </html>

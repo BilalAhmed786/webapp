@@ -42,7 +42,7 @@ elseif (stripos($homedata, $search) == true  &&(!empty($_GET['search']))) {
 if(isset($_GET['searchsubmit']) && (!empty($_GET['search']))){ 
 $keywords=$_GET['search'];
 echo 'Result not found if you want <h4>"'.$keywords.'"</h4> search on google then click on link below';echo "</br></br>";
-echo '<a target=\"_blank\"  href = "http://www.google.com/search?q='.$keywords.'" style= text-decoration:none;color:red; >Google</a>';
+echo '<a  href = "http://www.google.com/search?q='.$keywords.'" target="_blank"  style= text-decoration:none;color:red; >Google</a>';
 
     }
     else{
@@ -57,6 +57,9 @@ echo '<a target=\"_blank\"  href = "http://www.google.com/search?q='.$keywords.'
 <footer>
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/footer.php');?>
 </footer>
+</div>
+<div class="copyright">
+<p>@copyright.com</p>
 </div>
 <script src="custom.js"></script>
 </body>

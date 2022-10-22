@@ -31,6 +31,11 @@
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/footer.php');?>
 </footer>
 </div>
+<div class="copyright">
+
+<p>@copyright.com</p>
+
+</div>
 <script src="custom.js"></script>
 </body>
 </html>
