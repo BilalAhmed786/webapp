@@ -35,3 +35,41 @@ var i;
 });
   });
 
+
+  
+    //preloader
+
+	$(function() 
+	{
+		$('#preloader').fadeOut(5000, function() 
+		{
+			$(this).remove();
+		});
+	})
+
+//scroll to top button
+  $(function () {
+    var $window = $(window);
+    var $buttonTop = $('.button-top');
+    var scrollTimer;
+    
+    $buttonTop.on('click', function () {
+      $('html, body').animate({
+      scrollTop: 0,
+      });
+    });
+    
+    $window.on('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+       if ($window.scrollTop() > 500) {
+        $buttonTop.addClass('button-top-visible');
+      } else {
+        $buttonTop.removeClass('button-top-visible');
+      }         
+      });
+    });  
+    })
+
+
+
