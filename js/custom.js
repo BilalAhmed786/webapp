@@ -46,6 +46,15 @@ var i;
 			$(this).remove();
 		});
 	})
+  
+  // header style
+  $(window).scroll(function(){
+    var sticky = $('.header'),
+      scroll = $(window).scrollTop();
+    
+    if (scroll >= 700) sticky.addClass('fixed-top');
+    else sticky.removeClass('fixed-top');
+    }); 
 
 //scroll to top button
   $(function () {
@@ -72,4 +81,6 @@ var i;
     })
 
 
+
+// header style
 

@@ -35,12 +35,17 @@ body{
    
    /*header settings*/
 
-   header {
-    
+   .header {
     height: 100px;
-    background-color: rgba(0, 0, 0, 0.413);
-   
+    background-color: rgba(221, 167, 167, 0.977);
+  
 }
+.fixed-top{
+  height: 100px;
+  position: sticky;
+  top: -1px;
+  
+  }
 /* site logo */
 img.logoimage {
   width: 85px;
@@ -273,7 +278,7 @@ div.rows {
   .navbar a {
    font-size: 16px;
    display: inline-flex;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 14px 16px;
     margin-top: 15px;
