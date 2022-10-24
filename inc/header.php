@@ -38,13 +38,13 @@
 <!-- site logo -->
 
 <div class="sitelogo">
-<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg" ></a>
+<a href="http://localhost/webapp/" ><img  class="logoimage" src="./images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg" ></a>
 </div>
 </div>
 <div class="navbar">
-  <!--Desktop view Mega menu -->
-<a href="http://localhost/webapp/pages/home.php">Home</a>
-  <a href="http://localhost/webapp/pages/news.php">News</a>
+   <!--Desktop view Mega menu -->
+<a href="http://localhost/webapp/">Home</a>
+<a href="news.php">News</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>
@@ -55,7 +55,7 @@
         <div class="column">
           <h3>Category 1</h3>
           <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
+          <a href="contactus.php">Link 2</a>
           <a href="#">Link 3</a>
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
@@ -76,10 +76,10 @@
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
-</div>
+   </div>
+   <a href="contactus.php">Contact Us</a>
 <div class="searchbar">
   <!-- Desktop view searchform -->
 <form action="search.php" method="GET">
