@@ -41,8 +41,7 @@
 <div class="sitelogo">
 <?php 
  $registerlogo =$_SERVER['REQUEST_URI'];
- $loginlogo =$_SERVER['REQUEST_URI'];
-if($registerlogo=='/webapp/auth/registration.php' || $loginlogo=='/webapp/auth/login.php'){
+if($registerlogo=='/webapp/auth/registration.php' || $registerlogo=='/webapp/auth/login.php' || $registerlogo=='/webapp/auth/forgetpass.php'){
 echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
  }else{
    

@@ -22,7 +22,7 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" action="forgetpass.php" method="POST">
 			<h1>Sign In</h1>
 				<div class="login__field">
 					<input type="text" class="login__input" placeholder="User name / Email">
@@ -33,7 +33,7 @@
 				<button class="button login__submit">
 					<span class="button__text">Log In Now</span>
 				</button>	</br>
-				<button class="button login__submit">
+				<button href="http://localhost/webapp/auth/forgetpass.php" class="button login__submit">
 					<span class="button__text">Forget password</span>
 				</button>			
 			</form>

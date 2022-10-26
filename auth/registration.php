@@ -23,8 +23,8 @@
 </div>
 <div id="login-box">
   <div class="left">
-    <h1>Sign up</h1>
     
+    <h1>Sign up</h1>
     <input type="text" name="username" placeholder="Username" />
     <input type="text" name="email" placeholder="E-mail" />
     <input type="password" name="password" placeholder="Password" />
@@ -32,7 +32,7 @@
     
     <input type="submit" name="signup_submit" value="Sign me up" />
   </div>
-  
+</div>
  
 <script src="auth.js"></script>
 <script src="../js/custom.js"></script>
