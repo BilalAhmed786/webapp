@@ -46,7 +46,7 @@ elseif (stripos($homedata, $search) == true  &&(!empty($_GET['search']))) {
   else{
 if(isset($_GET['searchsubmit']) && (!empty($_GET['search']))){ 
 $keywords=$_GET['search'];
-echo 'Result not found if you want <h4>"'.$keywords.'"</h4> search on google then click on link below';echo "</br></br>";
+echo 'Result not found if you want "'.$keywords.'" search on google then click on link below';echo "</br></br>";
 echo '<a  href = "http://www.google.com/search?q='.$keywords.'" target="_blank"  style= text-decoration:none;color:red; >Google</a>';
 
     }

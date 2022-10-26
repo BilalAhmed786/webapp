@@ -6,7 +6,7 @@
   
   <div class="mobilesearchbar">
     <!-- Mobile view searchform -->
-  <form action="search.php" method="GET">
+  <form action="" method="GET">
     <input type="text" name="search" required >
     <button type="Submit" name="searchsubmit">Search</button>
 </form>
@@ -37,14 +37,23 @@
 </div>
 <!-- site logo -->
 
+
 <div class="sitelogo">
-<a href="http://localhost/webapp/" ><img  class="logoimage" src="./images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg" ></a>
-</div>
+<?php 
+ $registerlogo =$_SERVER['REQUEST_URI'];
+ $loginlogo =$_SERVER['REQUEST_URI'];
+if($registerlogo=='/webapp/auth/registration.php' || $loginlogo=='/webapp/auth/login.php'){
+echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
+ }else{
+   
+ echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="./images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
+ }
+ ?>
 </div>
 <div class="navbar">
    <!--Desktop view Mega menu -->
 <a href="http://localhost/webapp/">Home</a>
-<a href="news.php">News</a>
+<a href="">News</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>
@@ -55,7 +64,7 @@
         <div class="column">
           <h3>Category 1</h3>
           <a href="#">Link 1</a>
-          <a href="contactus.php">Link 2</a>
+          <a href="">Link 2</a>
           <a href="#">Link 3</a>
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
@@ -79,12 +88,12 @@
         </div>
     </div>
    </div>
-   <a href="contactus.php">Contact Us</a>
+   <a href="">Contact Us</a>
 <div class="searchbar">
   <!-- Desktop view searchform -->
 <form action="search.php" method="GET">
-    <input type="text" name="search" required >
-    <button type="Submit" name="searchsubmit">Search</button>
+    <input style= height:20px type="text" name="search" required >
+    <button  type="Submit" name="searchsubmit">Search</button>
 </form>
 </div>
 </div>

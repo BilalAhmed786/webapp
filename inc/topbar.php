@@ -3,6 +3,6 @@
 <a href="#" class="fa fa-instagram"></a>
 </div>
 <div class="authnav">
-<a href="#">Register</a>
-<a href="#">Login</a>
+<a href="http://localhost/webapp/auth/registration.php">Register</a>
+<a href="http://localhost/webapp/auth/login.php">Login</a>
 </div>
