@@ -53,7 +53,7 @@ echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="../images
 <div class="navbar">
    <!--Desktop view Mega menu -->
 <a href="http://localhost/webapp/">Home</a>
-<a href="">News</a>
+<a href="http://localhost/webapp/news.php">News</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>
@@ -88,10 +88,10 @@ echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="../images
         </div>
     </div>
    </div>
-   <a href="">Contact Us</a>
+   <a href="http://localhost/webapp/contactus.php">Contact Us</a>
 <div class="searchbar">
   <!-- Desktop view searchform -->
-<form action="search.php" method="GET">
+<form action="<?php echo 'http://localhost/webapp/search.php' ?>" method="GET">
     <input style= height:20px type="text" name="search" required >
     <button  type="Submit" name="searchsubmit">Search</button>
 </form>
