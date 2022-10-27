@@ -27,8 +27,10 @@
     <h1>Sign up</h1>
     <input type="text" name="username" placeholder="Username" />
     <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="password2" placeholder="Retype password" /></br>
+    <input id="showhidepass" type="password" name="password" placeholder="Password" />
+    <a onclick="passwrd()"><i id="idfa" class="fa fa-eye"></i></a>
+    <input  id="retypepass" type="password" name="password2" placeholder="Retype password" />
+    <a onclick="retypepass()"><i class="fa fa-eye"></i></a></br>
     
     <input type="submit" name="signup_submit" value="Sign me up" />
   </div>

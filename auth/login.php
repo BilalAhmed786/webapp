@@ -28,7 +28,8 @@
 					<input type="text" class="login__input" placeholder="User name / Email">
 				</div>
 				<div class="login__field">
-					<input type="password" class="login__input" placeholder="Password">
+					<input  id="showhidepass" type="password" class="login__input" placeholder="Password">
+					<a onclick="passwrd()"><i id="idfa" class="fa fa-eye"></i></a>
 				</div>
 				<button class="button login__submit">
 					<span class="button__text">Log In Now</span>
