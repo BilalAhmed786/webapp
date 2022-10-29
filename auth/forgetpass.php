@@ -20,7 +20,9 @@
 <div id="forget-box">
   <div class="left">
     <h1>Forget password</h1>
-    <input type="text" name="email" placeholder="E-mail" /></br>
+.
+    <form action="" method="POST">
+    <input type="text" name="email" placeholder="E-mail"/  required></br>
     <input type="submit" name="signup_submit" value="Submit" />
   </div>
 </div>

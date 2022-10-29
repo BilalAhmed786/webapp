@@ -1,10 +1,9 @@
 /*hide show password*/
 /*password*/
+
 function passwrd() {
     var x= document.getElementById("showhidepass");
     var y=document.getElementsByClassName("fa fa-eye");
-    console.log(x);
-    console.log(y);
     if (x.type === "password") {
       x.type = "text";
       x.style.color="red";

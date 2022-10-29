@@ -18,7 +18,7 @@ if (isset($_POST["register"])){
   if($firstname==''){
         $name_error = "<p style=color:red>Name is required</p>";
   }
-if
+ if
    ($email==''){
     $email_error = "<p style=color:red>email is required</p>";
  }
@@ -35,7 +35,6 @@ if
             VALUES ('$firstname','$email','$phonenumber','$address')";
             
             if (mysqli_query($conn, $sql)) {
-              echo "New record created successfully";
               $submit_formsucc = "<p>Form submitted successfully</p>";
             } else {
               echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -87,17 +86,17 @@ if
  <div class="form-group">
     <label style=padding-right:15px>Name *</label>
     <input type ="text"  class="form-control" name="user_fname">
-    <span class="text-danger"><?php echo $name_error; ?> </span>
+    <?php echo $name_error; ?>
 </div>
 <div class="form-group">
 <label style=padding-right:15px>Email *</label>
 <input type ="text" class="form-control" name="user_email" >
-<span class="text-danger"><?php echo $email_error; ?> </span>
+<?php echo $email_error; ?> 
 </div>
 <div class="form-group">
 <label style=padding-right:15px>Phone*</label>
 <input   type ="text" class="form-control" name="phone_number" >
-<span class="text-danger"><?php echo $phone_error; ?></span>
+<?php echo $phone_error;?>
 </div>
 <div class="form-group">
 <label style=display:block;text-align:center;padding-bottom:10px>Address (optional)</label>
@@ -106,8 +105,8 @@ if
 <br /><br />
 <div class="submit-form">
 <input type="submit" class="submitbutton" name="register" value="Submit"><br /><br />
-<span class="text-success"><?php echo $submit_formsucc;?></span>
-<span class="text-success"><?php echo $emailsent;?></span> <span class="text-danger"><?php echo $email_notsent;?></span>
+<?php echo $submit_formsucc;?>
+<?php echo $emailsent;?><span class="text-danger"><?php echo $email_notsent;?>
 </div>
 </form>
 </div>
