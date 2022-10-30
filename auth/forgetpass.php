@@ -18,7 +18,7 @@ $q= "SELECT * FROM users_role where email = '$passreset'";
          if($row){
             $toEmail=$emailresult['email'];
           $Message="To reset password use the link below";
-          echo '<a  href = "http://localhost/webapp/auth/updatepassword.php?email='.$toEmail.'" target="_blank"  style= text-decoration:none;color:red; >Reset password</a>';
+         '<a  href = "http://localhost/webapp/auth/updatepassword.php?email='.$toEmail.'" target="_blank"  style= text-decoration:none;color:red; >Reset password</a>';
          $siteName="webApp";
             $headers="Name:".$siteName. PHP_EOL 
             . "Email:".$toEmail . PHP_EOL 
@@ -62,7 +62,7 @@ $q= "SELECT * FROM users_role where email = '$passreset'";
 			<form class="login" action="" method="POST">
 			<h1>Reset Password</h1>
 				<div class="login__field">
-					<input id="emailsubmit" type="text"  name="emailset"  placeholder="Email">
+					<input id="emailsubmit" type="text" required name="emailset"  placeholder="Email">
 				</div>
 		<button class="button login__submit" name="loginsubmit"	>
 					<span class="button__text">Submit</span>

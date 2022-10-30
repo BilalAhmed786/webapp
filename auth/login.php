@@ -77,8 +77,8 @@ elseif(isset($loginresult['email'] )!= $loginemail && isset($loginresult['passwo
 					<?php echo $loginsuccess?>
 					<?php echo $requiredfields?>
 					
-				</br>
-				<a href="http://localhost/webapp/auth/forgetpass.php" class="button login__submit">
+				</br></br></br>
+				<a id=forget-button href="http://localhost/webapp/auth/forgetpass.php" class="button login__submit">
 					Forget password
                   </a>			
 			</form>

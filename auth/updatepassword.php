@@ -52,7 +52,7 @@ $passwordchange="";
 			<form class="login" action="" method="POST">
 			<h1>Reset Password</h1>
 				<div class="login__field">
-					<input id="showhidepass" type="text"  name="newpassword" class="login__input" placeholder="New password">
+					<input id="showhidepass" type="password"  name="newpassword" class="login__input" placeholder="New password">
 					<a onclick="passwrd()"><i id="idfa" class="fa fa-eye"></i></a>
 					
 				</div>
