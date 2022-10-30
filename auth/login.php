@@ -80,7 +80,7 @@ elseif(isset($loginresult['email'] )!= $loginemail && isset($loginresult['passwo
 				</br>
 				<a href="http://localhost/webapp/auth/forgetpass.php" class="button login__submit">
 					Forget password
-</a>			
+                  </a>			
 			</form>
 			</div>
            </div>

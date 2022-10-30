@@ -57,7 +57,6 @@ if (isset($_POST["register"])){
            
     if(mail($toEmail,$username,$headers) && (mail($userEmail,$siteName,$headers2))){
           $emailsent = "<p>Email sent to you..</P>"; 
-          
           }else{
            
           $email_notsent=  "<P style=color:red>Email not sent! check your internet connection</p>";

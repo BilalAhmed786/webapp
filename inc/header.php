@@ -39,20 +39,12 @@
 
 
 <div class="sitelogo">
-<?php 
- $registerlogo =$_SERVER['REQUEST_URI'];
-if($registerlogo=='/webapp/auth/registration.php' || $registerlogo=='/webapp/auth/login.php' || $registerlogo=='/webapp/auth/forgetpass.php' || $registerlogo=='/webapp/auth/updatepassword.php'){
-echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
- }else{
-   
- echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="./images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
- }
- ?>
-</div>
+<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>;
+ </div>
 <div class="navbar">
    <!--Desktop view Mega menu -->
-<a href="http://localhost/webapp/">Home</a>
-<a href="http://localhost/webapp/news.php">News</a>
+<a href="http://localhost/webapp/pages/home.php">Home</a>
+<a href="http://localhost/webapp/pages/news.php">News</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>
@@ -87,10 +79,10 @@ echo '<a href="http://localhost/webapp/" ><img  class="logoimage" src="../images
         </div>
     </div>
    </div>
-   <a href="http://localhost/webapp/contactus.php">Contact Us</a>
+   <a href="http://localhost/webapp/pages/contactus.php">Contact Us</a>
 <div class="searchbar">
   <!-- Desktop view searchform -->
-<form action="<?php echo 'http://localhost/webapp/search.php' ?>" method="GET">
+<form action="<?php echo 'http://localhost/webapp/pages/search.php' ?>" method="GET">
     <input style= height:20px type="text" name="search" required >
     <button  type="Submit" name="searchsubmit">Search</button>
 </form>

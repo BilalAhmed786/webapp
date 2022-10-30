@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    </head>
 <body>
 <div id="preloader" class='allpre'></div>
-<div class="topbar"> <?php include "inc/topbar.php";?></div>
+<div class="topbar"><?php require_once(dirname(dirname(__FILE__)) . '/inc/topbar.php');?>
 <div class="header">
 <header>
-<?php include "inc/header.php";?>
+<?php require_once(dirname(dirname(__FILE__)) . '/inc/header.php');?>
 </header>
 </div>
 </div>
@@ -23,7 +23,7 @@
     <h1> search result for "<?php echo $_GET['search'];?>"</h1>
   <?php
 $homedata =file_get_contents('http://localhost/webapp/partials/homework.php');
-$homepage='<a href="http://localhost/webapp/" style=text-decoration:none;color:red;>HOME</a>';
+$homepage='<a href="http://localhost/webapp/pages/home.php" style=text-decoration:none;color:red;>HOME</a>';
 $newsdata =file_get_contents('http://localhost/webapp/partials/newswork.php');
 $newspage='<a href="news.php" style=text-decoration:none;color:red;>NEWS</a>';
 $search = $_GET['search'];
@@ -60,12 +60,12 @@ echo '<a  href = "http://www.google.com/search?q='.$keywords.'" target="_blank" 
 </div>  
 <div class="footer">
 <footer>
-<?php require 'inc/footer.php';?>
+<?php require_once(dirname(dirname(__FILE__)) . '/inc/footer.php');?>
 </footer>
 </div>
 <div class="copyright">
 <p>@copyright.com</p>
 </div>
-<script src="./js/custom.js"></script>
+<script src="../js/custom.js"></script>
 </body>
 </html>

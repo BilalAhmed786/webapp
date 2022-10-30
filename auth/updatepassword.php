@@ -1,3 +1,32 @@
+<?php require_once(dirname(dirname(__FILE__)) . '/Database/database.php');?>
+
+<?php
+
+$Mismatchpass="";
+$passwordchange="";
+
+
+
+       if(isset($_POST['resetsubmit'])){
+		$Newpassword=htmlspecialchars(md5($_POST['newpassword']));
+		$retypepassword=htmlspecialchars(md5($_POST['confirmpassword']));
+	     $receiveemail=htmlspecialchars($_GET['email']);
+   
+         if($Newpassword!=$retypepassword ||$Newpassword="" ||$retypepassword=""){
+               $Mismatchpass =  "<p style=color:red;padding-top:10px;text-align:center>Passwords Mismatch!!</p>";
+		 }
+		 else
+		 {
+			$q="UPDATE users_role  SET password = '$Newpassword' WHERE email ='$receiveemail'";	
+			mysqli_query($conn,$q);
+			
+			$passwordchange="<p style=color:green;padding-top:10px;text-align:center> password change succesfully</p>";
+		 }
+		  
+}        
+      
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,16 +54,19 @@
 				<div class="login__field">
 					<input id="showhidepass" type="text"  name="newpassword" class="login__input" placeholder="New password">
 					<a onclick="passwrd()"><i id="idfa" class="fa fa-eye"></i></a>
-					<span class="text-danger"><?php echo $loginerror ?></span>
+					
 				</div>
 				<div class="login__field">
 					<input  id="retypepass" type="password" name="confirmpassword" class="login__input" placeholder="Confirm Password">
 					<a onclick="retypepass()"><i class="fa fa-eye"></i></a></br>
-					<span class="text-danger"><?php echo $passworderr ?></span>
+					
 				</div>
-				<button class="button login__submit" name="loginsubmit"	>
+				<button class="button login__submit" name="resetsubmit"	>
 					<span class="button__text">Submit</span>
 				   </button>	
+				   <?php echo $Mismatchpass ?>
+				   <?php echo $passwordchange ?>
+
 <script src="auth.js"></script>
 <script src="../js/custom.js"></script>
 </body>
