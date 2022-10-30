@@ -3,6 +3,7 @@
 <?php
 $invalidemail="";
 $emailsent="";
+$unauthrize="";
 
 
       if(isset($_POST['loginsubmit'])){
@@ -14,26 +15,27 @@ $q= "SELECT * FROM users_role where email = '$passreset'";
           $result=mysqli_query($conn,$q);
           $emailresult=mysqli_fetch_assoc($result);
           $row= mysqli_num_rows($result);
-
-         if($row){
-            $toEmail=$emailresult['email'];
+          if(!$row){
+            $unauthrize= "<p style=padding-top:10px;text-align:center>email not exist</p>";
+          }else{
+         $toEmail=$emailresult['email'];
           $Message="To reset password use the link below";
          '<a  href = "http://localhost/webapp/auth/updatepassword.php?email='.$toEmail.'" target="_blank"  style= text-decoration:none;color:red; >Reset password</a>';
-         $siteName="webApp";
+           $siteName="webApp";
             $headers="Name:".$siteName. PHP_EOL 
             . "Email:".$toEmail . PHP_EOL 
             . "Message:".$Message;
-               mail($toEmail,$username,$headers);
+                if(mail($siteName,$headers,$Message)){
             $emailsent="<P style=color:Green;padding-top:10px> For update password link has been sent to your registerd email</P>";
             }else
             {
-         $invalidemail  = "<P style=color:red;padding-top:10px>Invalid email please verify your email address)</P>";
+         $invalidemail  = "<P style=padding-top:10px;text-align:center>something went wrong..</P>";
        }
-    
-         }
+      }
       
-
-
+     
+    
+      }
 
 
 ?>
@@ -69,6 +71,7 @@ $q= "SELECT * FROM users_role where email = '$passreset'";
       </button>	
       <?php echo $invalidemail ?>
       <?php echo $emailsent ?>
+      <?php echo $unauthrize ?>
 <script src="auth.js"></script>
 <script src="../js/custom.js"></script>
 </body>

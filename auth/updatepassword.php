@@ -4,15 +4,19 @@
 
 $Mismatchpass="";
 $passwordchange="";
+$matchpass="";
 
 
 
        if(isset($_POST['resetsubmit'])){
 		$Newpassword=htmlspecialchars(md5($_POST['newpassword']));
 		$retypepassword=htmlspecialchars(md5($_POST['confirmpassword']));
-	     $receiveemail=htmlspecialchars($_GET['email']);
+	     $receiveemail=htmlspecialchars(isset($_GET['email']));
    
-         if($Newpassword!=$retypepassword ||$Newpassword="" ||$retypepassword=""){
+		 if($Newpassword="" && $retypepassword="" ){
+			$matchpass =  "<p style=color:red;padding-top:10px;text-align:center> Both fields are Required!!</p>";
+	  }
+	     elseif($Newpassword != $retypepassword || $Newpassword="" || $retypepassword=""){
                $Mismatchpass =  "<p style=color:red;padding-top:10px;text-align:center>Passwords Mismatch!!</p>";
 		 }
 		 else
@@ -66,6 +70,7 @@ $passwordchange="";
 				   </button>	
 				   <?php echo $Mismatchpass ?>
 				   <?php echo $passwordchange ?>
+				   <?php echo $matchpass ?>
 
 <script src="auth.js"></script>
 <script src="../js/custom.js"></script>
