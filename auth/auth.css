@@ -295,5 +295,9 @@ a#forget-button {
 	transform: scale(1.5);	
 }
 
-
+.welcomenote {
+  color: red;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
 /* registration & login[end]form*/

@@ -27,8 +27,16 @@ if(isset($_POST['loginsubmit'])){
 elseif(isset($loginresult['email'] )!= $loginemail && isset($loginresult['password']) != $loginpass){
 	$loginfailure= "<p style=color:red;text-align:center;padding-top:10px>invalid email or password</P>";
 }elseif($loginresult['role']!='admin'){
-	header("Location: http://localhost/webapp");
+	session_start(); 
+	$_SESSION['username']=$loginresult['name'];
+	$_SESSION['email'] = $loginresult['email'] ;
+
+	header("Location: http://localhost/webapp/pages/home.php");
+	
 }else{
+	session_start(); 
+	$_SESSION['username']=$loginresult['name'];
+	$_SESSION['email'] = $loginresult['email'] ;
 	header("Location: http://localhost/webapp/auth/registration.php");
 }
 }
