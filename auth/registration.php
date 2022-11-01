@@ -10,18 +10,21 @@ $userpasserr="";
 $userretypepasserr="";
 
 
+
 if(isset($_POST['signup_submit'])){
 $username=htmlspecialchars($_POST['username']);
   $email=htmlspecialchars($_POST['email']);
   $password=htmlspecialchars($_POST['password']);
   $password=htmlspecialchars(md5($password));
- $password2=htmlspecialchars($_POST['password2']);
+  $password2=htmlspecialchars($_POST['password2']);
   $password2=htmlspecialchars(md5($password2));
   $hidenvalue=htmlspecialchars($_POST['hiden']);
 
 $sql = "SELECT * FROM users_role where email='$email'";
 $result =mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
+
+//Form validation
 
 if($username ==""){
     $usernameerr= "<P style=color:red;padding-bottom:10px>Name is required</p>";
@@ -56,9 +59,8 @@ elseif($username !="" && $email!= isset($row['email'])){
             $submittedfailure="<P style=color:red;padding-top:10px> some fields are missing</p>";
     }
 }
-  }
-
- ?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,10 +101,11 @@ elseif($username !="" && $email!= isset($row['email'])){
     <a onclick="retypepass()"><i class="fa fa-eye"></i></a></br>
     <?php echo $userretypepasserr ?>
     <?php echo $passwordmismatch ?>
-    <input  type="hidden" name="hiden" value="subscriber" />
+   <input  type="hidden" name="hiden" value="subscriber" />
     <input type="submit" name="signup_submit" value="Sign me up" />
     <?php echo $submitedsucess ?>
     <?php echo $submittedfailure ?>
+    
 </form>
 </div>
 </div>

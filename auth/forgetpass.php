@@ -25,7 +25,7 @@ $q= "SELECT * FROM users_role where email = '$passreset'";
             $headers="Name:".$siteName. PHP_EOL 
             . "Email:".$toEmail . PHP_EOL 
             . "Message:".$Message;
-                if(mail($siteName,$headers,$Message)){
+                if(mail($siteName,  $headers,$Message)){
             $emailsent="<P style=color:Green;padding-top:10px> For update password link has been sent to your registerd email</P>";
             }else
             {

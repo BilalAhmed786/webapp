@@ -39,7 +39,7 @@
 
 
 <div class="sitelogo">
-<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>;
+<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>
  </div>
 <div class="navbar">
    <!--Desktop view Mega menu -->
