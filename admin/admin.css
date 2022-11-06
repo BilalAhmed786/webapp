@@ -27,3 +27,21 @@ div.adminsidenav{
    
        }
       }
+
+/*control panel settings*/
+div.rows {
+  display: inline-flex;
+  width: 100%;
+}
+.adminmain{
+  background-color: rgb(255, 255, 255);
+  width:80%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top:10px;
+  }
+
+
+  /*admin css for pages*/
+
+  

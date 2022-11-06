@@ -11,7 +11,7 @@ function openNav() {
   }
 
 
-/* dropdown toggle on click*/
+/* Mobile navmenu toggle on click*/
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
@@ -49,12 +49,16 @@ var i;
   
   // header style
   $(window).scroll(function(){
-    var sticky = $('.header'),
-      scroll = $(window).scrollTop();
-    
-    if (scroll >= 700) sticky.addClass('fixed-top');
-    else sticky.removeClass('fixed-top');
+    scroll = $(window).scrollTop();
+    if (scroll >= 700){
+      $('.header').addClass('fixed-top');
+}else{
+  $('.header').removeClass('fixed-top');
+
+}
     }); 
+   
+
 
 //scroll to top button
   $(function () {

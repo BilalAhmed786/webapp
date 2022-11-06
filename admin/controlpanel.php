@@ -6,12 +6,11 @@ if(!isset($_SESSION))
 } 
 
 if(($_SESSION['role'])!=='admin'){
-    header("Location: http://localhost/webapp/pages/home.php");
+    header("Location: http://localhost/webapp/auth/login.php");
 }
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,13 +29,21 @@ if(($_SESSION['role'])!=='admin'){
 </div>
 <div class="header">
 <header>
-
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/header.php');?>
-
 </header>
 </div>
-<div class="adminsidenav">
-<?php require 'admindashboard.php';?>
+<div class="rows">
+    <div class="adminsidenav">
+        <?php require 'admindashboard.php';?>
+    </div>
+    
+     <div class="adminmain">
+      
+<!--- admin profile  ---------->
+
+
+</div>
+       
 </div>
 <script src="auth.js"></script>
 <script src="../js/custom.js"></script>

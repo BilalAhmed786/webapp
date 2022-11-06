@@ -39,8 +39,16 @@
 
 
 <div class="sitelogo">
-<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>
- </div>
+   <!-- for full url path --> 
+<?php $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?>
+<?php
+if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php"){
+echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
+}else{
+  echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../../images/WhatsApp Image 2022-02-23 at 12.37.02 PM.jpg"></a>';
+} 
+?>
+</div>
 <div class="navbar">
    <!--Desktop view Mega menu -->
 <a href="http://localhost/webapp/pages/home.php">Home</a>

@@ -12,7 +12,7 @@ if(isset($_POST['loginsubmit'])){
     $loginemail =htmlspecialchars($_POST['email']);
 	$loginpass= htmlspecialchars($_POST['password']);
 	$loginpass=htmlspecialchars(md5($loginpass));
-	$remeber= htmlspecialchars($_POST['remeberme']);
+	$remeber= htmlspecialchars(isset($_POST['remeberme']));
 /*data fetch from database*/
 	
 $q="SELECT * from users_role where email='$loginemail' and password = '$loginpass'";
@@ -113,7 +113,7 @@ elseif($loginresult['role']!='admin')
 				</div>
 				<div class="login__field">
 					<input  id="showhidepass" type="password" name="password" class="login__input" placeholder="Password"
-					value="<?php if(isset($_COOKIE['password'])){echo $_COOKIE['password']; }?>">
+					value="<?php if(isset($_COOKIE['password'])){echo $_COOKIE['password']; }?>"/>
 					<a onclick="passwrd()"><i id="idfa" class="fa fa-eye"></i></a>
 					<span class="text-danger"><?php echo $passworderr ?></span>
 				</div>

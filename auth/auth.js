@@ -21,7 +21,6 @@ function passwrd() {
   function retypepass() {
     var x = document.getElementById("retypepass");
     var y=document.getElementsByClassName("fa fa-eye");
-    console.log(x);
     if (x.type === "password") {
       x.type = "text";
       x.style.color="red";
