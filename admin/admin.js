@@ -8,10 +8,20 @@ imgInp.onchange = e => {
   }
 
 
-  //for multiimages display in form
-  imagesInp.onchange = e => {
-    const [file] = imagesInp.files
-    if (file) {
-        blaa.src = URL.createObjectURL(file)
-    }
-  }
+//for display multiple images
+  
+const preview = (file) => {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);  // Object Blob
+    img.alt = file.name;
+    document.querySelector('#preview').append(img);
+  };
+  
+  document.querySelector("#files").addEventListener("change", (e) => {
+    if (!e.target.files) return; // Do nothing.
+    [...e.target.files].forEach(preview);
+    $blahhhide=document.getElementById("blahh")
+    $blahhhide.style.display="none";
+  });
+
+

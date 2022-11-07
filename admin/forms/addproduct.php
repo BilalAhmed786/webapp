@@ -30,17 +30,14 @@ for($i=0;$i<count($_FILES['images']['name']);$i++){
     $multiimagesdest=$_FILES['images']['tmp_name'][$i];
     $destmultiimag="../../images/".$multiimagesname;
     move_uploaded_file($multiimagesdest,$destmultiimag);
-    }
- 
-//add single product into database
+
+
 $q="insert into add_product(productname, productdescripton, productshortdescription, productcategory, productimage, productgallery, Inventory, saleprice, discountedprice) 
 values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$tempdest', '$multiimages', '$inventory', '$saleprice', '$discountprice' )";
 mysqli_query($conn,$q);
 
-//data fetch from database
-
-
-
+    
+}
 
 }
 
@@ -98,11 +95,13 @@ mysqli_query($conn,$q);
 <input  type="file" name="singleimage" id="imgInp" style=display:none>
 <img id="blah" src="../../images/avatar.png" style=width:100px;height:100px/>
 </div>
-<div class="image">
-<input type="button" id="loadFileimage" value="Products Images" onclick="document.getElementById('imagesInp').click();" />
-<input type="file" name="images[]" multiple id=imagesInp style=display:none>
-<img id="blaa" src="../../images/avatar.png" style=width:100px;height:100px/>
+
+<div id="preview">
+<input type="button" id="loadFileimage" value="Products Images" onclick="document.getElementById('files').click();" />
+<input type="file" name="images[]" multiple id="files" style=display:none>
+<img id="blahh" src="../../images/avatar.png" style=width:100px;height:100px/>
 </div>
+
 <div class=form-group>
 <input type="text" name="inventory" placeholder = "inventory">
 </div>

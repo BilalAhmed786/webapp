@@ -42,6 +42,6 @@ div.rows {
   }
 
 
-  /*admin css for pages*/
+  /*Multiple images preview*/
 
-  
+ #preview img{ max-height: 100px;padding:10px; }
