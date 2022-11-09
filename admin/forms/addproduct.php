@@ -8,7 +8,7 @@ if(!isset($_SESSION))
 if(($_SESSION['role'])!=='admin'){
     header("Location: http://localhost/webapp/auth/login.php");
 }
-
+$data='';
 if(isset($_POST['submit'])){
 $productname= htmlspecialchars($_POST['productname']);
 $productcat= htmlspecialchars($_POST['productcat']);
@@ -18,31 +18,23 @@ $inventory= htmlspecialchars($_POST['inventory']);
 $saleprice= htmlspecialchars($_POST['saleprice']);
 $discountprice= htmlspecialchars($_POST['discountprice']);
 $tempdest=$_FILES['singleimage']['name'];
-$multimulti=$_FILES['images']['name'];
-$multiimages=implode(",",$multimulti);//for multipe images in one record
 $tempname=$_FILES['singleimage']['tmp_name'];
 $destination="../../images/".$tempdest;
 move_uploaded_file($tempname,$destination);
-
 
 for($i=0;$i<count($_FILES['images']['name']);$i++){
     $multiimagesname=$_FILES['images']['name'][$i];
     $multiimagesdest=$_FILES['images']['tmp_name'][$i];
     $destmultiimag="../../images/".$multiimagesname;
     move_uploaded_file($multiimagesdest,$destmultiimag);
-
-
-$q="insert into add_product(productname, productdescripton, productshortdescription, productcategory, productimage, productgallery, Inventory, saleprice, discountedprice) 
-values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$tempdest', '$multiimages', '$inventory', '$saleprice', '$discountprice' )";
-mysqli_query($conn,$q);
-
+    $data .=$destmultiimag." ";
     
 }
+$q="insert into add_product(productname, productdescripton, productshortdescription, productcategory, productimage, productgallery, Inventory, saleprice, discountedprice) 
+values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$destination', ' $data', '$inventory', '$saleprice', '$discountprice' )";
+mysqli_query($conn,$q);
 
 }
-
-
-
 
 ?>
 
@@ -55,6 +47,7 @@ mysqli_query($conn,$q);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>

@@ -1,68 +1,57 @@
 
-        <div class="admindashboard">
-          <h3>Category 1</h3>
-          <a href="http://localhost/webapp/admin/controlpanel.php">Dashboard</a>
-          <a href="http://localhost/webapp/admin/forms/addproduct.php">Add Product</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-
-          <h3>Category 2</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-       
-    
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-       
-        
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-       
-        
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-       
-        
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-       
-        </div>
+       <div class=" pure-menu custom-display">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-heading">
+                Admin Dashboard
+            </li>
+ 
+            <li class="pure-menu-item
+                       pure-menu-has-children
+                       pure-menu-allow-hover">
+                <a href="#"
+                   class="pure-menu-link">
+                    products
+                </a>
+ 
+                <ul class="pure-menu-children">
+                    <li class="pure-menu-item">
+                        <a href="http://localhost/webapp/admin/forms/allproducts.php"
+                           class="pure-menu-link">
+                           All products
+                        </a>
+                    </li>
+                    <li class="pure-menu-item">
+                        <a href="http://localhost/webapp/admin/forms/addproduct.php"
+                           class="pure-menu-link">
+                             Add New
+                        </a>
+                    </li>
+                    <li class="pure-menu-item">
+                        <a href="#"
+                           class="pure-menu-link">
+                            Practice
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#"
+                   class="pure-menu-link">
+                    Students
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#"
+                   class="pure-menu-link">
+                    Jobs
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#"
+                   class="pure-menu-link">
+                    Courses
+                </a>
+            </li>
+ 
+        </ul>
+    </div>

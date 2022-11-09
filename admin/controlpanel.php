@@ -21,6 +21,7 @@ if(($_SESSION['role'])!=='admin'){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -40,7 +41,7 @@ if(($_SESSION['role'])!=='admin'){
      <div class="adminmain">
       
 <!--- admin profile  ---------->
-
+admin profile
 
 </div>
        
