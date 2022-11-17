@@ -34,6 +34,35 @@
                     </li>
                 </ul>
             </li>
+            <li class="pure-menu-item
+                       pure-menu-has-children
+                       pure-menu-allow-hover">
+                <a href="#"
+                   class="pure-menu-link">
+                    Categories
+                </a>
+ 
+                <ul class="pure-menu-children">
+                    <li class="pure-menu-item">
+                        <a href="http://localhost/webapp/admin/forms/addnewcat.php"
+                           class="pure-menu-link">
+                           Add new
+                        </a>
+                    </li>
+                    <li class="pure-menu-item">
+                        <a href="http://localhost/webapp/admin/forms/addproduct.php"
+                           class="pure-menu-link">
+                            Categories
+                        </a>
+                    </li>
+                    <li class="pure-menu-item">
+                        <a href="#"
+                           class="pure-menu-link">
+                            Practice
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="pure-menu-item">
                 <a href="#"
                    class="pure-menu-link">
@@ -52,6 +81,6 @@
                     Courses
                 </a>
             </li>
- 
-        </ul>
+          
+</ul>
     </div>

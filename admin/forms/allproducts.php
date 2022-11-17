@@ -44,22 +44,18 @@ if(($_SESSION['role'])!=='admin'){
 $i="";
 $q="select * from add_product";
 $fetch=mysqli_query($conn,$q);
-$data=mysqli_fetch_assoc($fetch);
-$res=$data['productgallery'];
-$productimg=$data['productimage'];
+while($data=mysqli_fetch_array($fetch)){
+$res= $data['productgallery'];
 $res=explode(" ",$res);
-$count=count($res)-1;
-
-echo "<img style=width:100px;height:100px src=".$productimg.">";
-
-echo "<br>";
-
-for($i=1;$i<$count;$i++){
-echo "<img style=width:100px;height:100px src=".$res[$i].">";
-
+$count=count($res);
+for($i=0;$count>$i;$i++){
+    echo "<img style=width:100px;padding:5px src='$res[$i]'>";
+}
 }
 
 ?>
+
+
 
 
 

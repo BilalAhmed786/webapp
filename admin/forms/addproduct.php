@@ -25,17 +25,17 @@ move_uploaded_file($tempname,$destination);
 for($i=0;$i<count($_FILES['images']['name']);$i++){
     $multiimagesname=$_FILES['images']['name'][$i];
     $multiimagesdest=$_FILES['images']['tmp_name'][$i];
-    $destmultiimag="../../images/".$multiimagesname;
-    move_uploaded_file($multiimagesdest,$destmultiimag);
-    $data .=$destmultiimag." ";
+    $destmultiimage="../../images/".$multiimagesname;
+    move_uploaded_file($multiimagesdest,$destmultiimage);
+    $data .=$destmultiimage." ";
     
 }
 $q="insert into add_product(productname, productdescripton, productshortdescription, productcategory, productimage, productgallery, Inventory, saleprice, discountedprice) 
 values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$destination', ' $data', '$inventory', '$saleprice', '$discountprice' )";
 mysqli_query($conn,$q);
 
-}
 
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,48 +66,59 @@ mysqli_query($conn,$q);
     
   <div class="adminmain">
 <form action="" method="post" enctype="multipart/form-data">
+    <h3 style=text-align="center">Add product</h3>
     <div class=form-group>
-<input type="text" name="productname" placeholder = "productname">
-</div>
-<select name="productcat" id="">
+    <input class="prdouctaddinput" type="text" name="productname" placeholder = "productname">
+ </div>
 <div class="form-group">
-<option value="shirts">shirts</option>
-<option value="shoes">shoes</option>
-<option value="ties">ties</option>
-<option value="tshirts">tshirts</option>
+    <label class="productaddlab" for="productcat">productcategory</label></br>
+    <select id="productcat" name="productcat">
+  <?php
+  $q="SELECT * FROM product_cat";
+  $result=mysqli_query($conn,$q);
+       while($categories=mysqli_fetch_array($result)){
+    $categoriesresult=$categories['Category'];
+    echo "<option value='$categoriesresult'>$categoriesresult</option>";
+ }
+?> 
+ </select>
 </div>
-</select>
+
 <div class="form-group">
-<textarea name="productshortdesc"  cols="30" rows="10"></textarea>
+    <label class="productaddlab" for="shortdesc">Short description</label></br>
+<textarea name="productshortdesc"  cols="50" rows="10"></textarea>
 </div>  
 <div class="form-group">
-<textarea name="productdesc"  cols="30" rows="10"></textarea>
+<label class="productaddlab" for="longdesc">Description</label></br>
+<textarea name="productdesc"  cols="50" rows="10"></textarea>
 </div>
 <div class="image">
-<input type="button" id="loadFileXml" value="Product Image" onclick="document.getElementById('imgInp').click();" />    
-<input  type="file" name="singleimage" id="imgInp" style=display:none>
-<img id="blah" src="../../images/avatar.png" style=width:100px;height:100px/>
+<img id="blah" class="productimage" src="../../images/avatar.png" /></br>
+  <input  type="file" name="singleimage" id="imgInp" style=display:none>
 </div>
 
+<input type="button" id="loadFileXml" class="addbutton" value="ProductImage" onclick="document.getElementById('imgInp').click();" />
+  
 <div id="preview">
-<input type="button" id="loadFileimage" value="Products Images" onclick="document.getElementById('files').click();" />
-<input type="file" name="images[]" multiple id="files" style=display:none>
-<img id="blahh" src="../../images/avatar.png" style=width:100px;height:100px/>
+<img id="blahh"  src="../../images/avatar.png"></br>
+<input type="file" name="images[]" multiple id="files" style=display:none></br>
 </div>
+<input  type="button" id="loadFileimage" class="addbutton" value="Gallery Images" onclick="document.getElementById('files').click();" />
 
 <div class=form-group>
-<input type="text" name="inventory" placeholder = "inventory">
+<input class="prdouctaddinput" type="text" name="inventory" placeholder = "inventory">
 </div>
 <div class=form-group>
-<input type="text" name="saleprice" placeholder = "saleprice">
+<input class="prdouctaddinput" type="text" name="saleprice" placeholder = "saleprice">
 </div>
 <div class=form-group>
-<input type="text" name="discountprice" placeholder = "discountprice">
+<input class="prdouctaddinput" type="text" name="discountprice" placeholder = "discountprice">
 </div>
-<button type=submit name="submit" >Submit</button>  
+<div class=form-group>
+<button class="addbutton" type=submit name="submit" >Submit</button>  
 </div>
-
-
+</form>
+</div>
 <script src="../admin.js"></script>
 <script src="../../js/custom.js"></script>
 </body>

@@ -42,7 +42,9 @@
    <!-- for full url path --> 
 <?php $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?>
 <?php
-if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php" && $actual_link != "http://localhost/webapp/admin/forms/allproducts.php"){
+if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php" 
+  && $actual_link != "http://localhost/webapp/admin/forms/allproducts.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/addnewcat.php"){
 echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/sitelogo.png"></a>';
 }else{
   echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../../images/sitelogo.png"></a>';
