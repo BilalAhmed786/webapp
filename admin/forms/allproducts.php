@@ -46,8 +46,8 @@ $q="select * from add_product";
 $fetch=mysqli_query($conn,$q);
 while($data=mysqli_fetch_array($fetch)){
 $res= $data['productgallery'];
-$res=explode(" ",$res);
-$count=count($res);
+$res=explode(",",$res);
+$count=count($res)-1;
 for($i=0;$count>$i;$i++){
     echo "<img style=width:100px;padding:5px src='$res[$i]'>";
 }
