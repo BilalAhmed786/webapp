@@ -55,6 +55,7 @@ echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" 
    <!--Desktop view Mega menu -->
 <a href="http://localhost/webapp/pages/home.php">Home</a>
 <a href="http://localhost/webapp/pages/news.php">News</a>
+<a href="http://localhost/webapp/pages/shop.php">Shop</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>

@@ -43,6 +43,7 @@ body{
   height: 100px;
   position: sticky;
   top: -1px;
+  z-index: 9999;
   
   }
 /* site logo */
@@ -605,4 +606,24 @@ div.welcomenote{
   color: rgb(248, 248, 248);
   font-size: 18px;
   padding-bottom: 5px;
+}
+
+
+/*shoppage word*/
+
+.prorow {
+  display: inline-flex;
+   padding: 10px;
+}
+.procol{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+.shopmain {
+  display: block;
+  width: 80%;
 }

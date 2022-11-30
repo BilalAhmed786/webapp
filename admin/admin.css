@@ -49,16 +49,8 @@ div.rows {
 
   /*addproduct page settings*/
 
- #preview img{
-  display:inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  width: 20%;
-  padding: 8px;
-   }
 
- .form-group {
+.form-group {
   display: block;
   width: 100%;
   text-align: center;
@@ -66,8 +58,7 @@ div.rows {
 }
 
 
-
-  .prdouctaddinput {
+.prdouctaddinput {
     display: block;
     text-align: center;
     width: 70%;
@@ -86,6 +77,23 @@ margin-right: auto;
 width: 20%;
 
 }
+/* display multiple images and delete*/
+img.imagebundle {
+  width: 100px;
+  width: 100px;
+  padding: 12px;
+  margin: 2px
+}
+div#container {
+  display:flex;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* END display multiple images and delete*/
+
 select.selectoptions {
   /* display: block; */
   text-align: center;

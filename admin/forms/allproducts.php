@@ -38,7 +38,7 @@ if(($_SESSION['role'])!=='admin'){
     <div class="adminsidenav">
         <?php require '../admindashboard.php';?>
     </div>
-<div class="adminmain">
+<div class="shopdisplay">
 
 <?php
 $i="";
@@ -52,9 +52,7 @@ for($i=0;$count>$i;$i++){
     echo "<img style=width:100px;padding:5px src='$res[$i]'>";
 }
 }
-
 ?>
-
 
 
 

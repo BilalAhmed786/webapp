@@ -11,6 +11,7 @@ if(($_SESSION['role'])!=='admin'){
 $data='';
 if(isset($_POST['submit'])){
 $productname= htmlspecialchars($_POST['productname']);
+print_r($productname);
 $productcat= htmlspecialchars($_POST['productcat']);
 $productshortdesc= htmlspecialchars($_POST['productshortdesc']);
 $productdesc= htmlspecialchars($_POST['productdesc']);
@@ -28,14 +29,14 @@ for($i=0;$i<count($_FILES['images']['name']);$i++){
     $destmultiimage="../../images/".$multiimagesname;
     move_uploaded_file($multiimagesdest,$destmultiimage);
     $data .=$destmultiimage.",";
-    
-}
+    }
 $q="insert into add_product(productname, productdescripton, productshortdescription, productcategory, productimage, productgallery, Inventory, saleprice, discountedprice) 
 values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$destination', ' $data', '$inventory', '$saleprice', '$discountprice' )";
 mysqli_query($conn,$q);
 
 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -101,10 +102,10 @@ mysqli_query($conn,$q);
   
 <div id="preview">
 <img id="blahh"  src="../../images/avatar.png"></br>
-<input type="file" name="images[]" multiple id="files" style=display:none></br>
+<input type="file" name="images[]" multiple id="image"  onchange="image_select()" ></br>
+<div class="card-body d-flex flex-wrap justify-content-start" id="container">
 </div>
-<input  type="button" id="loadFileimage" class="addbutton" value="Gallery Images" onclick="document.getElementById('files').click();" />
-
+<input  type="button" id="loadFileimage" class="addbutton" value="Gallery Images" onclick="document.getElementById('image').click();" />
 <div class=form-group>
 <input class="prdouctaddinput" type="text" name="inventory" placeholder = "inventory">
 </div>
