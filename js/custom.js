@@ -1,4 +1,3 @@
-
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("mainn").style.marginLeft = "250px";
@@ -86,5 +85,26 @@ var i;
 
 
 
-// header style
+// cart quantity selector
+
+var grandtotal=document.getElementById('gtotal');
+var qtyname=document.getElementsByClassName('qtyname');
+var itemprice=document.getElementsByClassName('itemprice');
+var total=document.getElementsByClassName('total');
+function subtotal(){
+grandtotal=0;
+for(i=0;i<qtyname.length;i++){
+total[i].innerText=parseFloat(itemprice[i].value)*qtyname[i].value+'Rs';
+grandtotal=grandtotal+parseFloat(itemprice[i].value)*qtyname[i].value;
+
+                 }
+                
+                 gtotal.innerHTML='Rs ' +grandtotal;
+                
+    }
+subtotal();
+
+
+// view cart button
+
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 <body>
-    
+<div id="preloader" class='allpre'></div>
 <div class="topbar">
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/topbar.php');?>
 </div>
@@ -23,7 +24,7 @@
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/leftsidebar.php');?>
 </div>
     <div class ="shopmain">
-    <?php require_once(dirname(dirname(__FILE__)) . '/partials/shopwork.php');?>
+    <?php require_once(dirname(dirname(__FILE__)) . '/partials/cartwork.php');?>
 </div>
 </div>
 <div class="footer">

@@ -593,6 +593,7 @@ width: 450px;
   margin-left: 15px;
   text-decoration: none;
   margin-top: 12px;
+  padding: 7px
 }
 
 .socialicon a{
@@ -610,20 +611,69 @@ div.welcomenote{
 
 
 /*shoppage word*/
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
-.prorow {
-  display: inline-flex;
-   padding: 10px;
+*{
+    font-family: 'Titillium Web', sans-serif;
 }
-.procol{
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  font-size: 18px;
-  text-align: center;
-  margin: 10px;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+.product{
+    border: 1px solid #eaeaec;
+    margin: -1px 19px 3px -1px;
+    padding: 10px;
+    text-align: center;
+    background-color: #efefef;
 }
-.shopmain {
-  display: block;
-  width: 80%;
+table, th, tr{
+    text-align: center;
+}
+.title2{
+    text-align: center;
+    color: #66afe9;
+    background-color: #efefef;
+    padding: 2%;
+}
+h2{
+    text-align: center;
+    color: #66afe9;
+    background-color: #efefef;
+    padding: 2%;
+}
+table th{
+    background-color: #efefef;
+}
+
+/*cart settings*/
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -18px; 
+}
+.facart {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(250 250 250);
+}
+span#carttotal {
+  color: white;
+  font-size: 12px;
 }

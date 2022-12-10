@@ -6,8 +6,9 @@
   
   <div class="mobilesearchbar">
     <!-- Mobile view searchform -->
+    
   <form action="" method="GET">
-    <input type="text" name="search" required >
+  <input type="text" name="search" required >
     <button type="Submit" name="searchsubmit">Search</button>
 </form>
 </div>
@@ -56,6 +57,7 @@ echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" 
 <a href="http://localhost/webapp/pages/home.php">Home</a>
 <a href="http://localhost/webapp/pages/news.php">News</a>
 <a href="http://localhost/webapp/pages/shop.php">Shop</a>
+
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>

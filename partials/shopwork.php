@@ -1,38 +1,37 @@
 <?php require_once(dirname(dirname(__FILE__)) . '/Database/database.php');?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<div class="titleproduct">
-    <h2>SHOP</h2> 
-    <?php
-$i="";
-$q="select * from add_product";
-$fetch=mysqli_query($conn,$q);
-while($data=mysqli_fetch_array($fetch)){
-    $str2 = substr($data['productimage'], 3);
-    
- echo    
-'<div class="prorow">
-         <div class="procol">
-         <img style=width:300px src="'.$str2.'"></br>
-         <p>'.$data['productname'].'</p></br>
-        <p>'.$data['saleprice'].'</p>
-        <a href="'.$data['id'].'">Add to cart</a>
-         </div>
-    </div>';
-}
+<h2>Shop</h2>
+        <?php
+            $query = "SELECT * FROM add_product ORDER BY id ASC ";
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result) > 0) {
 
-?>
+                while ($row = mysqli_fetch_array($result)) {
+                $image=substr($row["productimage"],3);
+                
+            ?>
+                  
+                    
+                    <div class="col-md-3">
+                        <form method="post" action="cart.php?action=add&id=<?php echo $row["id"]; ?>">
+                        <div class="product">
+                                <img style=width:300px src="<?php echo $image; ?>" class="img-responsive">
+                                <h5 class="text-info"><?php echo $row["productname"]; ?></h5>
+                                <h5 class="text-danger"><?php echo $row["saleprice"]; ?></h5>
+                                <input type="hidden" name="hidden_name" value="<?php echo $row["productname"];?>">
+                                <input type="hidden" name="image" value="<?php echo $image;?>">
+                                <input type="hidden" name="hidden_qty" value="<?php echo $row["Inventory"];?>">
+                                <input type="hidden" name="hidden_price" value="<?php echo $row["saleprice"]; ?>">
+                                <input  type="submit" name="add" style="margin-top: 5px;" class="btn btn-success" value="Add to Cart"></br></br>
+                                <input id="cartview" type="submit" name="add" style="margin-top: 5px;" class="viewacrt" value="view Cart">
+                            </div>
+                        </form>
+                        </div>
+                    <?php
+                }
+            }
+        ?>
 
-</div>
- 
 
-</body>
-</html>
+      
+
