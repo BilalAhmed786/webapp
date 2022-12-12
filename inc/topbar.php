@@ -4,18 +4,19 @@
 } 
 ?>
 <?php
-$total = "";
-$countcart = "";
-if(isset($_SESSION["cart"])) {
-    $total = 0;
-    $countcart=count($_SESSION["cart"]);
- foreach ($_SESSION["cart"] as $key => $value) {
-     
-     $total = $total + ((int)$value['productqty'] * (int)$value['product_price']);
-       
-     
-        }
+$countcart =0;
+$total = 0;
+if (isset($_SESSION["cart"])) {
+    $countcart = count($_SESSION["cart"]);
+    foreach ($_SESSION["cart"] as $key => $value) {
+
+        $total = $total + ((int) $value['productqty'] * (int) $value['product_price']);
+
+
     }
+  
+
+}
 
 ?>
 

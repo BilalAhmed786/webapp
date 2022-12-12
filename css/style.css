@@ -618,7 +618,7 @@ div.welcomenote{
 }
 .product{
     border: 1px solid #eaeaec;
-    margin: -1px 19px 3px -1px;
+    margin: 10px 15px 10px 10px;
     padding: 10px;
     text-align: center;
     background-color: #efefef;
@@ -676,4 +676,19 @@ table th{
 span#carttotal {
   color: white;
   font-size: 12px;
+}
+
+.cartnote{
+  display: block;
+  text-align: center;
+}
+
+/*shoppage settings*/
+.col-md-3 {
+  display: inline-block;
+}
+
+.shopmain {
+  width: 80%;
+  display: block;
 }

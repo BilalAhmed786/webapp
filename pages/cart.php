@@ -10,7 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 <body>
-<div id="preloader" class='allpre'></div>
 <div class="topbar">
 <?php require_once(dirname(dirname(__FILE__)) . '/inc/topbar.php');?>
 </div>

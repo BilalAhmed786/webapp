@@ -105,6 +105,9 @@ grandtotal=grandtotal+parseFloat(itemprice[i].value)*qtyname[i].value;
 subtotal();
 
 
-// view cart button
-
+// shop notifications
+$("#addtocart").click(function(){
+  $(".addcart").show();
+  setTimeout(function() { $(".addcart").hide(); }, 1000); 
+});
 

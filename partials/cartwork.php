@@ -5,56 +5,29 @@
             session_start(); 
         } 
     
-if (isset($_POST["add"])){
-        if (isset($_SESSION["cart"])){
-            $item_array_id = array_column($_SESSION["cart"],"product_id");
-            if (!in_array($_GET["id"],$item_array_id)){
-                $count = count($_SESSION["cart"]);
-               $item_array = array(
-                 'product_id' => $_GET["id"],
-                  'item_name' => $_POST["hidden_name"],
-                  'image_name' => $_POST["image"],
-                  'product_price' => $_POST["hidden_price"],
-                  'quantity' => $_POST["hidden_qty"],
-                  'productqty'=>1
-                    
-                );
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
 
-            
-        $_SESSION["cart"][$count] = $item_array;
-                echo '<script>window.location="shop.php"</script>';
-            }else{
-                echo '<script>window.location="shop.php"</script>';
-            }
-        }else{
-
-            $item_array = array(
+        // Adding products to the basket:
+        if (isset($_GET['id'])&& isset($_POST['add'])) {
+            $_SESSION['cart'][$_GET['id']] = array(
                 'product_id' => $_GET["id"],
-               'item_name' => $_POST["hidden_name"],
-               'image_name' => $_POST["image"],
+                'item_name' => $_POST["hidden_name"],
+                'image_name' => $_POST["image"],
                 'product_price' => $_POST["hidden_price"],
                 'quantity' => $_POST["hidden_qty"],
                 'productqty'=>1
-                
             );
-            
-            $_SESSION["cart"][0] = $item_array;
+            echo '<script>window.location="shop.php"</script>';
         }
-
-    setcookie('cart', $_SESSION("cart"), time() + (86400 * 60));
-    }
-
-    if (isset($_GET["action"])){
-        if ($_GET["action"] == "delete"){
-            foreach ($_SESSION["cart"] as $keys => $value){
-                if ($value["product_id"] == $_GET["id"]){
-                    unset($_SESSION["cart"][$keys]);
-                    echo '<script>window.location="cart.php"</script>';
-                }
+        
+        // Removing products from the basket:
+        if (isset($_GET['action']) && $_GET['action'] == 'delete') {
+            if(isset($_SESSION['cart'][$_GET['id']])) {
+                unset($_SESSION['cart'][$_GET['id']]);
             }
         }
-    }
-
 $quantrest="";
 if (isset($_POST['mod_qty'])) {
     $total = 0;
@@ -66,7 +39,7 @@ if (isset($_POST['mod_qty'])) {
                 $_SESSION['cart'][$keys]['productqty'] = $_POST['mod_qty'];
 
             }else{
-               $quantrest='<p style=color:red;> <b style=color:black>'.$_POST['item_name'].'</b> is less than your desired qunatity "'.$_POST['mod_qty'].'"</p>';
+               $quantrest='<p class="cartnote"> <b>'.$_POST['item_name'].'</b> is less than your desired qunatity "'.$_POST['mod_qty'].'"</p>';
             }
         }
     }
@@ -81,9 +54,10 @@ if (isset($_POST['mod_qty'])) {
 <div style=""></div>
         <h3 class="title2">Shopping Cart Details</h3>
         <?php echo $quantrest;?>
-        <div style=width:150% class="table-responsive">
+        <div style=width:100% class="table-responsive">
             <table  class="table table-bordered">
             <tr>
+            <th width="10%">Sr</th>
                 <th width="50%">Product Name</th>
                 <th width="10%">Quantity</th>
                 <th width="13%">UnitPrice</th>
@@ -94,10 +68,11 @@ if (isset($_POST['mod_qty'])) {
             <?php
                 if(!empty($_SESSION["cart"])){
                     
-                foreach ($_SESSION["cart"] as $key => $value) {
+                foreach ($_SESSION["cart"] as $keys => $value) {
                 ?>
 
                         <tr>
+                            <td><?php echo $keys+1; ?></td>
                             <td><img style=width:50px class="cartimage" src='<?php echo $value["image_name"]; ?>'></br>
                             <?php echo $value["item_name"]; ?></td>
                             <td>
