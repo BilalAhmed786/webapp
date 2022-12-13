@@ -26,6 +26,7 @@
         if (isset($_GET['action']) && $_GET['action'] == 'delete') {
             if(isset($_SESSION['cart'][$_GET['id']])) {
                 unset($_SESSION['cart'][$_GET['id']]);
+        echo '<script>window.location="cart.php"</script>';
             }
         }
 $quantrest="";
@@ -67,12 +68,12 @@ if (isset($_POST['mod_qty'])) {
 
             <?php
                 if(!empty($_SESSION["cart"])){
-                    
+                    $n=1;
                 foreach ($_SESSION["cart"] as $keys => $value) {
                 ?>
 
                         <tr>
-                            <td><?php echo $keys+1; ?></td>
+                            <td><?php echo $n++ ?></td>
                             <td><img style=width:50px class="cartimage" src='<?php echo $value["image_name"]; ?>'></br>
                             <?php echo $value["item_name"]; ?></td>
                             <td>
@@ -107,4 +108,3 @@ if (isset($_POST['mod_qty'])) {
         </div>
 
     </div>
-

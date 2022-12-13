@@ -23,7 +23,7 @@ if (isset($_SESSION["cart"])) {
 <div class="socialicon">
     <a href="#" class="fa fa-facebook"></a>
     <a href="#" class="fa fa-instagram"></a>
-    <a href="cart.php"><i class="fa fa-cart" style="font-size:24px">&#xf07a;</i></a>
+    <a href="http://localhost/webapp/pages/cart.php"><i class="fa fa-cart" style="font-size:24px">&#xf07a;</i></a>
     <span class='badge badge-warning' id='lblCartCount'><?php echo $countcart;?></span> 
     <span class='totalcart' id='carttotal'><?php echo "Rs.",$total;?>  </span>  
     
