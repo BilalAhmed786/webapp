@@ -17,7 +17,7 @@
                     <div class="col-md-3">
                   <form id="shopsubmit" method="post"  action="cart.php?action=add&id=<?php echo $row["id"]; ?>">
                         <div class="product">
-                                <img style=width:200px src="<?php echo $image; ?>" class="img-responsive">
+                               <a href="productpage.php?id=<?php echo $row["id"];?>" ><img style=width:200px src="<?php echo $image; ?>" class="img-responsive"></a>
                                 <h5 class="text-info"><?php echo $row["productname"]; ?></h5>
                                 <h5 class="text-danger"><?php echo $row["saleprice"]; ?></h5>
                                 <input type="hidden" name="hidden_name" value="<?php echo $row["productname"];?>">

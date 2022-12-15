@@ -613,9 +613,7 @@ div.welcomenote{
 /*shoppage word*/
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
-*{
-    font-family: 'Titillium Web', sans-serif;
-}
+
 .product{
     border: 1px solid #eaeaec;
     margin: 10px 15px 10px 10px;
@@ -692,3 +690,11 @@ span#carttotal {
   width: 80%;
   display: block;
 }
+
+
+
+
+/*image crousel*/
+
+
+

@@ -28,10 +28,10 @@ for($i=0;$i<count($_FILES['images']['name']);$i++){
     $multiimagesdest=$_FILES['images']['tmp_name'][$i];
     $destmultiimage="../../images/".$multiimagesname;
     move_uploaded_file($multiimagesdest,$destmultiimage);
-    $data .=$destmultiimage.",";
+    $data.=$destmultiimage.",";
     }
 $q="insert into add_product(productname, productdescripton, productshortdescription, productcategory, productimage, productgallery, Inventory, saleprice, discountedprice) 
-values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$destination', ' $data', '$inventory', '$saleprice', '$discountprice' )";
+values('$productname', '$productshortdesc', '$productdesc', '$productcat', '$destination', '$data', '$inventory', '$saleprice', '$discountprice' )";
 mysqli_query($conn,$q);
 
 
