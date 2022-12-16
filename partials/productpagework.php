@@ -7,8 +7,9 @@ $image_count = 0;
 $button_html = '';		
 $slider_html = '';	
 $thumb_html = '';
-$image = '';
+$images = '';
 while ($row = mysqli_fetch_array($resultset)) {
+	$productname=$row['productname'];
 	$res = $row['productgallery'];
     $res = explode(",", $res);
     $count = count($res)-1;
@@ -20,13 +21,12 @@ while ($row = mysqli_fetch_array($resultset)) {
 			$image_count = 1;
 		}
 		$image_count++;
-		$thumb_image = $images;
 		// slider image html
 		$slider_html .= "<div class='item " . $active_class . "'>";
-		$slider_html .= "<img src='" . $image . "' alt='1.jpg' class='img-responsive'><img src='" . $images . "' alt='1.jpg' class='img-responsive'>";
+		$slider_html .= "<img src='" . $images . "' alt='1.jpg' class='img-responsive'>";
 		$slider_html .= "<div class='carousel-caption'></div></div>";
 		// Thumbnail html
-		$thumb_html .= "<li><img style=width:50px src='" . $thumb_image . "' alt=''></li>";
+		$thumb_html .= "<li><img style=width:80px src='". $images ."'  class='thumbnail'></li>";
 		// Button html
 		$button_html .= "<li data-target='#carousel-example-generic' data-slide-to='" . $image_count . "' class='" . $active_class . "'></li>";
 	
@@ -37,8 +37,8 @@ while ($row = mysqli_fetch_array($resultset)) {
 
 
 
-<div class="">	
-	<h2>Create Bootstrap Carousel Slider with Thumbnails using PHP & MySQL</h2>	
+<div class="crouselcontainer">	
+<h2><?php echo $productname;?></h2>	
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">	  
 		<ol class="carousel-indicators">
 		<?php echo $button_html; ?>		

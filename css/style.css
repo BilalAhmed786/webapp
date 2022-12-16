@@ -694,7 +694,70 @@ span#carttotal {
 
 
 
-/*image crousel*/
+/*single page image crousel*/
+.carousel {
+  position: relative;
+  text-align: center;
+  margin-left:auto;
+  margin-right: auto;
+  height: 600px;
+  width:80%;
+  background: rgb(0 0 0 / 0%);
+}
 
 
+.thumbnail>img,
+.thumbnail a>img,
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+  display: block;
+  object-fit: cover;
+  width: 80%;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  }
 
+  ul.thumbnails-carousel.clearfix {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+    text-decoration-style: none;
+    list-style-type: none;
+}
+.thumbnail {
+  display: block;
+  padding: 9px;
+  margin-bottom: 16px;
+  line-height: 42.428571;
+  background-color:transparent !important;
+  border: 0px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  width: 100px !important;
+}
+.carousel-control.left
+{
+  color:black;
+  background-image:none !important;
+  width: 35px;
+  margin-left: 90px;
+}
+.carousel-control.right{
+  color:black;
+  background-image:none !important;
+  width: 35px;
+  margin-right: 90px;
+  opacity: 80%;
+
+}
+.glyphicon-chevron-left,
+.glyphicon-chevron-right
+{
+  left: 27%;
+  margin-left: -10px;
+  color: wheat;
+  opacity: 70%;
+}
