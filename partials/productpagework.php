@@ -9,6 +9,7 @@ $slider_html = '';
 $thumb_html = '';
 $images = '';
 while ($row = mysqli_fetch_array($resultset)) {
+	$productid=$row['id'];
 	$productname=$row['productname'];
 	$res = $row['productgallery'];
     $res = explode(",", $res);
@@ -35,8 +36,6 @@ while ($row = mysqli_fetch_array($resultset)) {
 }
 ?>
 
-
-
 <div class="crouselcontainer">	
 <h2><?php echo $productname;?></h2>	
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">	  
@@ -52,7 +51,7 @@ while ($row = mysqli_fetch_array($resultset)) {
 		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
 			<span class="glyphicon glyphicon-chevron-right"></span>
 		</a>	 
-		<ul class="thumbnails-carousel clearfix">
+		<ul style=cursor:pointer; class="thumbnails-carousel clearfix" href="#carousel-example-generic" role="button" data-slide="next">
 			<?php echo $thumb_html; ?>
 		</ul>
 	</div>	
