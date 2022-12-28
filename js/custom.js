@@ -60,9 +60,14 @@ var i;
     
     
 
+//single page review button
 
 
- // single page review ajax call
+$(".btn-success").click(function(){
+  $("#viewcart").css('display','block')
+});
+
+// single page review ajax call
 
 
     $(document).ready(function(){
@@ -253,20 +258,7 @@ var i;
     });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
@@ -288,7 +280,7 @@ grandtotal=grandtotal+parseFloat(itemprice[i].value)*qtyname[i].value;
 
 }
 
-document.getElementById("gtotal").innerText='Rs ' +grandtotal;
+document.getElementById("gtotal").innerHTML='Rs ' +grandtotal;
                 
     }
 subtotal();

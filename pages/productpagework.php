@@ -94,14 +94,19 @@ while ($row = mysqli_fetch_array($resultset)) {
 <div class="col-md-3">
                   
                         <div class="">
-						<form id="myform" method="post" action="cart.php">
+						<style>
+                                .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+                        </style>
+
+                            <iframe name="hiddenFrame" class="hide"></iframe>
+                            <form action="cart.php" method="post" target="hiddenFrame">
                                <input  type="hidden" name="hidden_name" value="<?php echo $productname;?>">
 								<input type="hidden" name="hidden_id" value="<?php echo $productid;?>">
                                 <input type="hidden" name="image" value="<?php echo $proimage;?>">
                                 <input type="hidden" name="hidden_qty" value="<?php echo $inventorystatus;?>">
                                 <input type="hidden" name="hidden_price" value="<?php echo $prodprice; ?>">
-                                <input type="submit" name="add" style="margin-top: 5px;" class="btn btn-success" value="Add to Cart"></br></br>
-
+                                <input type="submit" name="add" style="margin-top: 5px;" onclick="reviewcart()" class="btn btn-success" value="Add to Cart"></br></br>
+                                <a id="viewcart" style=color:red;font-size:15px;display:none;  href="cart.php">view cart</a>   
                             </div>
 </form>
                 </div>
@@ -116,13 +121,15 @@ while ($row = mysqli_fetch_array($resultset)) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="reviewcontainer">
     	<h1 style=color:blue;display:block;float:none;text-align:left class="mt-5 mb-5">Review for <?php echo $productname;?> </h1>
     	<div class="card">
     		<div style=font-size:15px class="card-header"><?php echo $productname;?> </div>

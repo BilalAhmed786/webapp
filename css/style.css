@@ -785,6 +785,11 @@ width:50%
 
 
 /*single page product review*/
+.reviewcontainer{
+margin-top: 35px;
+}
+
+
 .progress-label-left
 {
     float: left;
