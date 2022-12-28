@@ -1,6 +1,5 @@
 <?php
-
-    	if(!isset($_SESSION)) 
+if(!isset($_SESSION)) 
         { 
             session_start(); 
         } 
@@ -10,9 +9,9 @@
         }
 
         // Adding products to the basket:
-        if (isset($_GET['id'])&& isset($_POST['add'])) {
-            $_SESSION['cart'][$_GET['id']] = array(
-                'product_id' => $_GET["id"],
+        if (isset($_POST['add'])) {
+            $_SESSION['cart'][$_POST['hidden_id']] = array(
+                'product_id' => $_POST["hidden_id"],
                 'item_name' => $_POST["hidden_name"],
                 'image_name' => $_POST["image"],
                 'product_price' => $_POST["hidden_price"],
@@ -96,7 +95,7 @@ if (isset($_POST['mod_qty'])) {
          ?>
                         <tr>
                             <td colspan="3" align="right">Total</td>
-                            <th id='gtotal'></th>
+                            <th id="gtotal"></th>
                             <td></td>
                         </tr>
                         <?php

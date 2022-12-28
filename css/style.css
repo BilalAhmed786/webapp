@@ -761,3 +761,59 @@ span#carttotal {
   color: wheat;
   opacity: 70%;
 }
+
+
+/*single page product description*/
+
+.proddesc {
+  display: block;
+  text-align: left;
+  margin-top: 148px;
+  margin-left: 25px;
+  font-size: 18px;
+
+}
+.prodname{
+color:red;
+text-align:left;
+background:lightgray;
+padding:10px;
+width:50%
+
+}
+
+
+
+/*single page product review*/
+.progress-label-left
+{
+    float: left;
+    margin-right: 0.5em;
+    line-height: 1em;
+}
+.progress-label-right
+{
+    float: right;
+    margin-left: 0.3em;
+    line-height: 1em;
+}
+.star-light
+{
+	color:#e9ecef;
+}
+
+.modal-dialog {
+  margin-top: 128px;
+}
+
+input#user_name {
+  width: 100%;
+}
+
+
+
+
+
+
+
+

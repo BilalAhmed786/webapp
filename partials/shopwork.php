@@ -10,16 +10,16 @@
 
                 while ($row = mysqli_fetch_array($result)) {
                 $image=substr($row["productimage"],3);
+       
 
     ?>
-                  
-                    
-                    <div class="col-md-3">
-                  <form id="shopsubmit" method="post"  action="cart.php?action=add&id=<?php echo $row["id"]; ?>">
+<div class="col-md-3">
+                  <form id="myform" method="post" action="cart.php">
                         <div class="product">
                                <a href="productpage.php?id=<?php echo $row["id"];?>" ><img style=width:200px src="<?php echo $image; ?>" class="img-responsive"></a>
                                 <h5 class="text-info"><?php echo $row["productname"]; ?></h5>
                                 <h5 class="text-danger"><?php echo $row["saleprice"]; ?></h5>
+                                <input type="hidden" name="hidden_id" value="<?php echo $row["id"];?>">
                                 <input type="hidden" name="hidden_name" value="<?php echo $row["productname"];?>">
                                 <input type="hidden" name="image" value="<?php echo $image;?>">
                                 <input type="hidden" name="hidden_qty" value="<?php echo $row["Inventory"];?>">
@@ -33,6 +33,9 @@
                 }
             }
         ?>
+
+
+
 
 
       

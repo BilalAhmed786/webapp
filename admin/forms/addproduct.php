@@ -87,11 +87,11 @@ mysqli_query($conn,$q);
 
 <div class="form-group">
     <label class="productaddlab" for="shortdesc">Short description</label></br>
-<textarea name="productshortdesc"  cols="50" rows="10"></textarea>
+<textarea name="productshortdesc" style="white-space: pre-wrap;" cols="50" rows="10"></textarea>
 </div>  
 <div class="form-group">
 <label class="productaddlab" for="longdesc">Description</label></br>
-<textarea name="productdesc"  cols="50" rows="10"></textarea>
+<textarea name="productdesc" style="white-space: pre-wrap;" cols="50" rows="10"></textarea>
 </div>
 <div class="image">
 <img id="blah" class="productimage" src="../../images/avatar.png" /></br>
