@@ -41,10 +41,8 @@ if(isset($_POST["rating_data"]))
 	$total_user_rating = 0;
 	$review_content = array();
 	
-		$query = "
-SELECT * FROM review_table where product_id=$productid";
-	
-	$result = $connect->query($query, PDO::FETCH_ASSOC);
+		$query = "SELECT * FROM review_table WHERE `product_id`=$productid AND `status`='pending'";
+		$result = $connect->query($query, PDO::FETCH_ASSOC);
 
 	foreach($result as $row)
 	{
@@ -53,7 +51,9 @@ SELECT * FROM review_table where product_id=$productid";
 			'user_name'		=>	$row["user_name"],
 			'user_review'	=>	$row["user_review"],
 			'rating'		=>	$row["user_rating"],
-			'datetime'		=>	date('l jS, F Y h:i:s A', $row["datetime"])
+			'status'		=>	$row["status"],
+		   'product_id'		=>	$row["product_id"],
+		   'datetime'		=>	date('l jS, F Y h:i:s A', $row["datetime"])
 		);
 
 		if($row["user_rating"] == '5')

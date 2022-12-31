@@ -124,14 +124,19 @@ $(".btn-success").click(function(){
         $(document).on('click', '.submit_star', function(){
     
             rating_data = $(this).data('rating');
-    
-        });
+            
+            localStorage.setItem('userrating',rating_data);
+            
+    });
     
         $('#save_review').click(function(){
     
             var user_name = $('#user_name').val();
+            localStorage.setItem('username',user_name);
             var user_review = $('#user_review').val();
+            localStorage.setItem('userreview',user_review);
             var product_id = $('#product_id').val();
+            localStorage.setItem('productid',product_id);
             if(user_name == '' || user_review == '')
             {
                 alert("Please Fill Both Field");
@@ -155,8 +160,10 @@ $(".btn-success").click(function(){
             }
     
         });
+    // single page review ajax call
+        
     
-        load_rating_data();
+    load_rating_data();
     
         function load_rating_data()
         {
@@ -201,21 +208,64 @@ $(".btn-success").click(function(){
                     $('#one_star_progress').css('width', (data.one_star_review/data.total_review) * 100 + '%');
     
                     if(data.review_data.length > 0)
-                    {
-                        var html = '';
     
-                        for(var count = 0; count < data.review_data.length; count++)
+                    {
+                        console.log(data.review_data);
+                        var html = '';
+                        if(data.review_data[i].status=='pending' && data.review_data[i].product_id==localStorage.getItem('productid'))
+                        {
+                            html += '<div class="col-sm-1"><div class="rounded-circle bg-secondary text-white pt-2 pb-2"><h3 style=display:block;margin-top:2px;>'+localStorage.getItem('username').charAt(0)+'</h3></div></div>';
+                            
+                            html += '<div class="card">';
+                           
+                            html +='<div>'
+                            html += '<div class="card-header"><i style=color:red>'+localStorage.getItem('username')+'</i></div>';
+                            html += '<div class="card-body">';
+                            html += '<div><P style=color:red;font-style:italic;>your review is pending for approvel..</P></div>';
+                            
+                            for(var star = 1; star <= 5; star++)
+                             {
+                                var class_name = '';
+    
+                                if(localStorage.getItem('userrating')>= star)
+                                {
+                                    class_name = 'text-warning';
+                                }
+                                else
+                                {
+                                    class_name = 'star-light';
+                                }
+                                html += '<i class="fas fa-star '+class_name+' mr-1"></i>';
+                                
+                            }
+                            
+                            html += '<p>'+localStorage.getItem('userreview')+'</p>';
+                            html += '</div>'; //stable star-rating in horizantal view   
+                            html += '</div>';//card body close
+                            html += '</div>';//card div close
+                            
+                            html += '<br/>';
+                           
+                            
+                           
+                    
+                        }
+                   
+                    
+                            
+                            for(var count = 0; count < data.review_data.length; count++)
                         {
                             html += '<div class="row mb-3">';
+                            
     
-                            html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
+                            html += '<div class="col-sm-1"><div style=display:block;margin-left:10px class="rounded-circle bg-danger text-white pt-1 pb-1"><h3 style=display:block;margin-top:2px>'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
     
                             html += '<div class="col-sm-11">';
     
                             html += '<div class="card">';
     
-                            html += '<div class="card-header"><b>'+data.review_data[count].user_name+'</b></div>';
-    
+                            html += '<div class="card-header"><i style=color:red>'+data.review_data[count].user_name+'</i></div>';
+                            
                             html += '<div class="card-body">';
     
                             for(var star = 1; star <= 5; star++)
@@ -248,22 +298,16 @@ $(".btn-success").click(function(){
     
                             html += '</div>';
                         }
-    
-                        $('#review_content').html(html);
+                       
+                       $('#review_content').html(html);
+                        
                     }
                 }
             })
+           
         }
     
     });
-
-
- 
-
-
-
-
-
 
 
 // cart quantity selector

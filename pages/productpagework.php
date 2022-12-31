@@ -83,6 +83,7 @@ while ($row = mysqli_fetch_array($resultset)) {
 <p class="desc" style=text-align:left;font-size:15px;><?php echo $proddesc;?></p>
 <p class="desc" style=text-align:left;font-size:15px;><?php echo $prodprice;?></p>
 <p class="desc" style=color:red;text-align:left;font-size:18px;><s><?php echo $disctprice;?></s></p>
+
 <?php if($inventorystatus==0){
 	echo "<p style=color:red;text-align:left;font-size:15px;>Out of stock</p>";
 }else{
@@ -130,7 +131,7 @@ while ($row = mysqli_fetch_array($resultset)) {
 </head>
 <body>
     <div class="reviewcontainer">
-    	<h1 style=color:blue;display:block;float:none;text-align:left class="mt-5 mb-5">Review for <?php echo $productname;?> </h1>
+    	<h1 style=color:blue;display:block;float:none;text-align:left;font-size:20px class="mt-5 mb-5">Review for <?php echo $productname;?> </h1>
     	<div class="card">
     		<div style=font-size:15px class="card-header"><?php echo $productname;?> </div>
     		<div class="card-body">
@@ -199,8 +200,6 @@ while ($row = mysqli_fetch_array($resultset)) {
     	</div>
     	<div class="mt-5" id="review_content"></div>
     </div>
-
-    <script src="../js/custom.js"></script>   
 </body>
 </html>
 <div id="review_modal" class="modal" tabindex="-1" role="dialog">
@@ -230,7 +229,7 @@ while ($row = mysqli_fetch_array($resultset)) {
 	        	</div>
                 <div class="form-group">
 	        		<input type="hidden" name="product_id" id="product_id" class="form-control" value="<?php echo $productid;?>"/>
-                    </div>
+				</div>
               <div class="form-group text-center mt-4">
 	        		<button type="button" class="btn btn-primary" id="save_review">Submit</button>
 	        	</div>
@@ -239,8 +238,3 @@ while ($row = mysqli_fetch_array($resultset)) {
   	</div>
 </div>
 
-
-<script>
-
-
-</script>
