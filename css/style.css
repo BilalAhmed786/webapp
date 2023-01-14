@@ -884,4 +884,12 @@ input.orderplace {
   margin-top: 50px;
  
 }
-
+input.shopingdetails {
+  color: white;
+  padding: 10px 15px;
+  background: red;
+  border: none;
+  cursor: pointer;
+  margin-left: 80px;
+  margin-top: 36px;
+}

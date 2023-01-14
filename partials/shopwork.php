@@ -13,8 +13,7 @@ if (mysqli_num_rows($result) > 0) {
 
 ?>
 <div class="col-md-3">
-
-                  <form id="myform" method="post" action="cart.php" target="hiddenFrame">
+<form id="myform" method="post" action="cart.php">
                         <div class="product">
                                <a href="productpage.php?id=<?php echo $row["id"]; ?>" ><img style=width:200px src="<?php echo $image; ?>" class="img-responsive"></a>
                                 <h5 class="text-info"><?php echo $row["productname"]; ?></h5>
@@ -35,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
                                 }
                                  ?>   
                             </div>
-                        </form>
+</form>
                         </div>
                     <?php
                 
