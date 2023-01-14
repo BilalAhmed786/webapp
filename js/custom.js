@@ -1,4 +1,3 @@
-
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("mainn").style.marginLeft = "250px";
@@ -154,7 +153,7 @@ $(".btn-success").click(function(){
     
                         load_rating_data();
     
-                        alert(data);
+                        
                     }
                 })
             }
@@ -210,7 +209,6 @@ $(".btn-success").click(function(){
                     if(data.review_data.length > 0)
     
                     {
-                        console.log(data.review_data);
                         var html = '';
                         if(data.review_data[i].status=='pending' && data.review_data[i].product_id==localStorage.getItem('productid'))
                         {
@@ -252,7 +250,7 @@ $(".btn-success").click(function(){
                         }
                    
                     
-                            
+                            if(data.review_data[i].status=='pending'){
                             for(var count = 0; count < data.review_data.length; count++)
                         {
                             html += '<div class="row mb-3">';
@@ -298,6 +296,7 @@ $(".btn-success").click(function(){
     
                             html += '</div>';
                         }
+                    }
                        
                        $('#review_content').html(html);
                         
@@ -310,26 +309,36 @@ $(".btn-success").click(function(){
     });
 
 
+    $(".freeshipadmin").click(function(){
+        $(".freeship").css('display','block');
+    });
+
+
 // cart quantity selector
-var grandtotal=document.getElementById('gtotal');
+shipment=0;
 var qtyname=document.getElementsByClassName('qtyname');
 var itemprice=document.getElementsByClassName('itemprice');
 var total=document.getElementsByClassName('total');
+var shipment=document.getElementById('shipmentcharge');
 function subtotal(){
 grandtotal=0;
 for(i=0;i<qtyname.length;i++){
 total[i].innerText=parseFloat(itemprice[i].value)*qtyname[i].value+'Rs';
 grandtotal=grandtotal+parseFloat(itemprice[i].value)*qtyname[i].value;
-
-
 }
-
+carttotal=grandtotal+~~parseFloat(shipment.value);
+document.getElementById("storagetotal").innerHTML='Rs.'+carttotal;
 document.getElementById("gtotal").innerHTML='Rs ' +grandtotal;
-                
-    }
+document.getElementById("cartship").innerHTML='Rs '+grandtotal;
+document.getElementById("nettotal").innerHTML = 'Rs '+carttotal;              
+}
 subtotal();
 
 
+
+
+
+    
 // shop notifications
 
 

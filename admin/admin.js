@@ -1,4 +1,3 @@
-
 //for productimage display
 imgInp.onchange = e => {
     const [file] = imgInp.files
@@ -55,5 +54,8 @@ var images = [];
         input.files = dt.files;
         console.log(document.getElementById('image').files);
       }
+
+//shipment form display control
+
 
 

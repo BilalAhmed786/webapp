@@ -11,7 +11,6 @@ if(($_SESSION['role'])!=='admin'){
 $data='';
 if(isset($_POST['submit'])){
 $productname= htmlspecialchars($_POST['productname']);
-print_r($productname);
 $productcat= htmlspecialchars($_POST['productcat']);
 $productshortdesc= htmlspecialchars($_POST['productshortdesc']);
 $productdesc= htmlspecialchars($_POST['productdesc']);
@@ -66,6 +65,8 @@ mysqli_query($conn,$q);
     </div>
     
   <div class="adminmain">
+
+  
 <form action="" method="post" enctype="multipart/form-data">
     <h3 style=text-align="center">Add product</h3>
     <div class=form-group>

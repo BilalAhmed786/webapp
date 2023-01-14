@@ -64,9 +64,9 @@
                 </ul>
             </li>
             <li class="pure-menu-item">
-                <a href="#"
+                <a href="http://localhost/webapp/admin/forms/shipment.php"
                    class="pure-menu-link">
-                    Students
+                    Shipments
                 </a>
             </li>
             <li class="pure-menu-item">

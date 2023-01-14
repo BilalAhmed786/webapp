@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(dirname(__FILE__)) . '/Database/database.php');
 if(!isset($_SESSION)) 
         { 
             session_start(); 
@@ -9,7 +10,7 @@ if(!isset($_SESSION))
         }
 
         // Adding products to the basket:
-        if (isset($_POST['add'])) {
+        if (isset($_POST['add'])&& $_POST["hidden_qty"]!=0) {
             $_SESSION['cart'][$_POST['hidden_id']] = array(
                 'product_id' => $_POST["hidden_id"],
                 'item_name' => $_POST["hidden_name"],
@@ -48,11 +49,10 @@ if (isset($_POST['mod_qty'])) {
 
 
 ?>
-
-
-
-<div style=""></div>
-        <h3 class="title2">Shopping Cart Details</h3>
+<?php
+if($_SESSION["cart"]!=[]){
+?>
+<h3 class="title2">Shopping Cart Details</h3>
         <?php echo $quantrest;?>
         <div style=width:100% class="table-responsive">
             <table  class="table table-bordered">
@@ -94,7 +94,7 @@ if (isset($_POST['mod_qty'])) {
                
          ?>
                         <tr>
-                            <td colspan="3" align="right">Total</td>
+                            <td colspan="3" align="right"><b>Sub total</b></td>
                             <th id="gtotal"></th>
                             <td></td>
                         </tr>
@@ -104,6 +104,77 @@ if (isset($_POST['mod_qty'])) {
                   
                 ?>
             </table>
-        </div>
 
-    </div>
+<div class="shiptable" style=display:inline-block;margin:0;padding:0;float:right;width:50%>
+            <h3 class="title2" style=>cart total</h3>
+<form id="shipform" action="cart.php" method="post">
+<div style=margin-left:-160px class="selectcity">
+<div style=margin-bottom:10px>
+<label for="">Regional shipping</label>
+</div>
+<select name="cityname" id="city" onchange=this.form.submit();>
+<option value="">select city</option>
+<?php
+$sql = "SELECT * from regional_shipping";
+$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+while ($row = mysqli_fetch_array($resultset)){
+$cityname=$row['cityname'];
+echo "<option value='$cityname'>$cityname</option>";
+}
+$city=$_POST['cityname'];
+?>  
+</select>
+</div>
+</form>
+<table style=width:100%>
+<tr style=padding:80px;>
+    <td>Sub total</td>
+    <td></td>
+    <td id="cartship"></td>
+</tr>
+<tr>
+    <td class="freeship"></td>
+    <td class="freeship">amount</td>
+</tr>
+<tr>
+   
+<?php
+ $cityship = "";
+ $cityamount = "";
+$sql = "SELECT * from regional_shipping where cityname='$city'";
+$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+ $row = mysqli_fetch_array($resultset);
+ if(isset($row['cityname']) && ($row['amount'])){
+$cityship=$row['cityname'];
+$cityamount = $row['amount'];
+ }
+?>   
+<td style=padding:20px;>Shipment</td>
+<td style=padding:20px;><?php echo $cityship?></td>
+<td style=padding:20px;><?php echo $cityamount?><input id="shipmentcharge" type="hidden" value="<?php echo $cityamount?>"></td>
+</tr>
+<tr>
+    <td style=display:block;text-align:center;margin-top:10px><b>Total</b></td>
+    <td id="nettotal" style=background:#efefef;padding:2px></td>
+    
+</tr>
+</table>
+      <?php if($cityamount!=''){
+       ?>
+       <form action="checkout.php" method="POST">
+            <input type="hidden" name="shipamount" value="<?php echo $cityamount?>">    
+            <input class="cartsubmitbtn" type="submit" value="proceed to checkout">
+        </form>
+        <?php
+    }else{ echo "<p style=color:red;margin-left:200px;background:lightgray;width:30%;padding:10px>select shipping</p>";
+
+    }
+}else{
+    echo "<p style=color:red;font-size:18px;background:lightgray;margin-left:15px;padding-left:15px;width:50%
+
+    ><i class='fa fa-info-circle' style=color:blue;padding:7px></i>Cart is empty</p>";
+}
+?>
+</div>
+</div>
+

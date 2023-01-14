@@ -681,6 +681,35 @@ span#carttotal {
   text-align: center;
 }
 
+.freeship{
+  display:none;
+}
+
+.cartsubmitbtn{
+  display: block;
+  float: right;
+  margin-top: 34px;
+  margin-right:120px;
+  padding: 8px 40px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+
+}
+
+.shipmenterror{
+  color:red;
+  float:right;
+  margin-right:130px;
+  background-color:lightgray;
+  padding:10px
+
+}
+
+
+
 /*shoppage settings*/
 .col-md-3 {
   display: inline-block;
@@ -816,9 +845,43 @@ input#user_name {
 }
 
 
+/*checkout page*/
+
+.row-checkout {
+  display: inline-flex;
+}
+
+.colmn-2 {
+  margin-left: 100px;
+  padding: 7px;
+  
+}
 
 
+table.checkouttab {
+  background-color:rgb(246 246 246);
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
 
+input.orderplace {
+  display: block;
+  float: right;
+  margin-top: 34px;
+  margin-right:110px;
+  padding: 8px 40px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
+/* order detail page*/
 
+.rowbill {
+  display: inline-flex;
+  margin-left: 10px;
+  margin-top: 50px;
+ 
+}
 

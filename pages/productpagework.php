@@ -18,7 +18,6 @@ while ($row = mysqli_fetch_array($resultset)) {
 	$prodprice = $row['saleprice'];
 	$disctprice = $row['discountedprice'];
 	$inventorystatus = $row['Inventory'];
-
 	$proimage = substr($image, 3);
 	$res = explode(",", $res);
     $count = count($res)-1;

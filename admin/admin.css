@@ -119,3 +119,33 @@ select.selectoptions {
   box-shadow: wheat;
   cursor: pointer;
 }
+
+
+/* shipment form */
+#freeshipment{
+  display:none;
+}
+
+div.form-check {
+  padding: 10px;
+}
+
+input#flexRadioDefault1 {
+  margin-left: -29px;
+}
+
+input#NoflexRadioDefault2 {
+  margin-left: -44px;
+  margin-top: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
