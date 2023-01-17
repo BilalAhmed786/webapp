@@ -250,7 +250,8 @@ $(".btn-success").click(function(){
                         }
                    
                     
-                            if(data.review_data[i].status=='pending'){
+                            if(data.review_data[i].status=='approve'){
+                                
                             for(var count = 0; count < data.review_data.length; count++)
                         {
                             html += '<div class="row mb-3">';
