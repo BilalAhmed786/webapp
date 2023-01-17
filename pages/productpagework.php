@@ -1,28 +1,18 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/Database/database.php');
-$imageid=$_GET['id'];
-$_SESSION['getid']=$imageid;
-$sql = "SELECT * from add_product where id=$imageid";
-$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+$proname=$_GET['productname'];
+
 $image_count = 0;
 $button_html = '';		
 $slider_html = '';	
 $thumb_html = '';
 $images = '';
-while ($row = mysqli_fetch_array($resultset)) {
-	$productid=$row['id'];
-	$productname=$row['productname'];
-	$res = $row['productgallery'];
-	$image = $row['productimage'];
-	$proddesc = $row['productdescripton'];
-	$prodprice = $row['saleprice'];
-	$disctprice = $row['discountedprice'];
-	$inventorystatus = $row['Inventory'];
-	$proimage = substr($image, 3);
-	$res = explode(",", $res);
-    $count = count($res)-1;
-	for ($i=0;$count>$i; $i++) {
-		$images = substr($res[$i], 3);
+
+$sql = "SELECT * from  product_gallery where productname='$proname'";
+$resultgal = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+while ($rowgal = mysqli_fetch_array($resultgal)) {
+	$images=$rowgal['productgallery'];
+		$images = substr($images, 3);
 		$active_class = "";
 		if (!$image_count) {
 			$active_class = 'active';
@@ -31,20 +21,31 @@ while ($row = mysqli_fetch_array($resultset)) {
 		$image_count++;
 		// slider image html
 		$slider_html .= "<div class='item " . $active_class . "'>";
-		if ($images != '../images/') {
-			$slider_html .= "<img src='" . $images . "' alt='1.jpg' class='img-responsive'>";
-		}else{
-			$slider_html .= "<img src='" . $proimage . "' alt='1.jpg' class='img-responsive'>";
-		}
+		$slider_html .= "<img src='" . $images . "' alt='1.jpg' class='img-responsive'>";
 		$slider_html .= "<div class='carousel-caption'></div></div>";
 		// Thumbnail html
-		$thumb_html .= "<li><img style=width:80px src='". $images ."'  class='thumbnail'></li>";
+		$thumb_html .= "<li><img style=width:80px src='" . $images . "'  class='thumbnail'></li>";
 		// Button html
 		$button_html .= "<li data-target='#carousel-example-generic' data-slide-to='" . $image_count . "' class='" . $active_class . "'></li>";
-	
 	}
 
+//for product detail and reviews
+$imageid=$_GET['id'];
+$_SESSION['getid']=$imageid;
+$sql = "SELECT * from add_product where id=$imageid";
+$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+while ($row = mysqli_fetch_array($resultset)) {
+	$productid = $row['id'];
+	$productname = $row['productname'];
+    $image = $row['productimage'];
+	$proddesc = $row['productdescripton'];
+	$prodprice = $row['saleprice'];
+	$disctprice = $row['discountedprice'];
+	$inventorystatus = $row['Inventory'];
+	$proimage = substr($image, 3);
+	
 }
+
 ?>
 
 <div class="crouselcontainer">	

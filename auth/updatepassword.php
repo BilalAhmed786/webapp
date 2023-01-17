@@ -6,9 +6,7 @@ $Mismatchpass="";
 $passwordchange="";
 $matchpass="";
 
-
-
-       if(isset($_POST['resetsubmit'])){
+if(isset($_POST['resetsubmit'])){
 		$Newpassword=htmlspecialchars(md5($_POST['newpassword']));
 		$retypepassword=htmlspecialchars(md5($_POST['confirmpassword']));
 	     $receiveemail=htmlspecialchars(isset($_GET['email']));
