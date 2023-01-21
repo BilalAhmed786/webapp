@@ -109,25 +109,6 @@ mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 </form>
 </div>
 
-<div class="adminmain">
-  <h3> Select shipment method</h3>
-  <div class="form-check">
-  <input class="freeshipadmin" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-  <label class="form-check-label" for="flexRadioDefault1">
-    Free shipping
-  </label>
-</div>
-<div class="form-check">
-  <input class="regshipadmin" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-  <label class="form-check-label" for="flexRadioDefault2">
-    Regional shipping
-  </label>
-  <div class="form-check">
-  <input class="noshipadmin" type="radio" name="flexRadioDefault" id="NoflexRadioDefault2" checked>
-  <label class="form-check-label" for="flexRadioDefault2">
-    No shipping
- </label>
-</div>
 <script>
 
 $("#flexRadioDefault1").click(function(){

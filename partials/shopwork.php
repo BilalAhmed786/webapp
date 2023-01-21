@@ -39,6 +39,8 @@ if (mysqli_num_rows($result) > 0) {
                     <?php
                 
     }
+}else{
+    echo '<p style=color:red;padding:5px;margin-left:3px;width:100%;background:lightgray;text-align:center>No product added yet</p>';
 }
         ?>
 

@@ -45,6 +45,9 @@
 <?php
 if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php" 
   && $actual_link != "http://localhost/webapp/admin/forms/allproducts.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/editproduct.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/productimggallery.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/addgalleryimages.php"
   && $actual_link != "http://localhost/webapp/admin/forms/addnewcat.php"
   && $actual_link != "http://localhost/webapp/admin/forms/shipment.php"){
 echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/sitelogo.png"></a>';

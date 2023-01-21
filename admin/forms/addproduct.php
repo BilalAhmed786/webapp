@@ -102,7 +102,7 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
                         $q = "SELECT * FROM product_cat";
                         $result = mysqli_query($conn, $q);
                         while ($categories = mysqli_fetch_array($result)) {
-                            $categoriesresult = $categories['Category'];
+                            $categoriesresult = $categories['category'];
                             echo "<option value='$categoriesresult'>$categoriesresult</option>";
                         }
                         ?>
@@ -140,7 +140,7 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
                         <input class="prdouctaddinput" type="text" name="saleprice" placeholder="saleprice">
                     </div>
                     <div class=form-group>
-                        <input class="prdouctaddinput" type="text" name="discountprice" placeholder="discountprice">
+                        <input class="prdouctaddinput" type="text" name="discountprice" placeholder="discountedprice">
                     </div>
                     <div class=form-group>
                         <button class="addbutton" type=submit name="submit">Submit</button>
