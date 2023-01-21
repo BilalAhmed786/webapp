@@ -77,7 +77,7 @@ if($result->num_rows>0) {
     <table style=width:100%;display:block >
     <thead>
     <th><input id='checkAll' type="checkbox"/><button style=color:white;background:red;padding:8px;border:none;cursor:pointer; name="del-btn" class="saifidelbtn">Delete</button></th>  
-    <tr style=width:100%;display:block >
+    <tr>
     <th>sr#</th>
     <th>productname</th>
     <th>product description</th>

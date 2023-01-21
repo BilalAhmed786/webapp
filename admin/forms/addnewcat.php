@@ -20,9 +20,9 @@ if (isset($_POST['submit'])) {
         $sql = "insert into product_cat(category) values('$productcat')";
         $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 
-        $catadded = "<p>Added succesfully</p>";
+        $catadded = "<p style=color:green>Added succesfully</p>";
     } else {
-        $catadded = "<p>already added</p>";
+        $catadded = "<p style=color:red>already added</p>";
     }
 }
 
@@ -72,7 +72,7 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
         </div>
 
         <div class="adminmain">
-            <div class="addcat">
+            <div class="">
                 <form action="addnewcat.php" method="post">
                     <h3 style=text-align="center">Add Category</h3>
                     <div class=form-group>
@@ -98,7 +98,7 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
                                     name="del-btn" class="saifidelbtn">Delete</button></th>
                             <tr>
                                 <th>sr#</th>
-                                <th>category</th>
+                                <th>categories</th>
                                 <th>delete</th>
                                 <th>update</th>
 
@@ -119,9 +119,9 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
                                         </div>
                                     </td>
                                     <td><a style=color:red;text-decoration:none
-                                            href="addnewcat.php?id=<?php echo $results['id'] ?>">Delete</a></td>
+                                            href="addnewcat.php?id=<?php echo $results['id']?>">Delete</a></td>
                                     <td><a style=color:red;text-decoration:none
-                                            href="addnewcat.php?id=<?php echo $results['id'] ?>">Edit</a></td>
+                                            href="editcategory.php?id=<?php echo $results['id']?>">Edit</a></td>
                                 </tr>
                             </tbody>
 
