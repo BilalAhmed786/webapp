@@ -129,18 +129,21 @@ $(".btn-success").click(function(){
     
             rating_data = $(this).data('rating');
             
-            localStorage.setItem('userrating',rating_data);
+            sessionStorage.setItem('userrating',rating_data);
             
     });
     
         $('#save_review').click(function(){
     
             var user_name = $('#user_name').val();
-            localStorage.setItem('username',user_name);
+            sessionStorage.setItem('username',user_name);
             var user_review = $('#user_review').val();
-            localStorage.setItem('userreview',user_review);
+            sessionStorage.setItem('userreview',user_review);
             var product_id = $('#product_id').val();
-            localStorage.setItem('productid',product_id);
+            sessionStorage.setItem('productid',product_id);
+            var product_name = $('#product_name').val();
+            console.log(product_name);
+            
             if(user_name == '' || user_review == '')
             {
                 alert("Please Fill Both Field");
@@ -151,7 +154,7 @@ $(".btn-success").click(function(){
                 $.ajax({
                     url:"submit_rating.php",
                     method:"POST",
-                    data:{rating_data:rating_data, product_id:product_id, user_name:user_name, user_review:user_review},
+                    data:{rating_data:rating_data, product_id:product_id,product_name:product_name, user_name:user_name, user_review:user_review},
                     success:function(data)
                     {
                         $('#review_modal').modal('hide');
@@ -215,14 +218,14 @@ $(".btn-success").click(function(){
     
                     {
                         var html = '';
-                        if(data.review_data[i].status=='pending' && data.review_data[i].product_id==localStorage.getItem('productid'))
+                        if(data.review_data[i].product_id==sessionStorage.getItem('productid'))
                         {
-                            html += '<div class="col-sm-1"><div class="rounded-circle bg-secondary text-white pt-2 pb-2"><h3 style=display:block;margin-top:2px;>'+localStorage.getItem('username').charAt(0)+'</h3></div></div>';
+                            html += '<div class="col-sm-1"><div class="rounded-circle bg-secondary text-white pt-2 pb-2"><h3 style=display:block;margin-top:2px;>'+sessionStorage.getItem('username').charAt(0)+'</h3></div></div>';
                             
                             html += '<div class="card">';
                            
                             html +='<div>'
-                            html += '<div class="card-header"><i style=color:red>'+localStorage.getItem('username')+'</i></div>';
+                            html += '<div class="card-header"><i style=color:red>'+sessionStorage.getItem('username')+'</i></div>';
                             html += '<div class="card-body">';
                             html += '<div><P style=color:red;font-style:italic;>your review is pending for approvel..</P></div>';
                             
@@ -230,7 +233,7 @@ $(".btn-success").click(function(){
                              {
                                 var class_name = '';
     
-                                if(localStorage.getItem('userrating')>= star)
+                                if(sessionStorage.getItem('userrating')>= star)
                                 {
                                     class_name = 'text-warning';
                                 }
@@ -242,7 +245,7 @@ $(".btn-success").click(function(){
                                 
                             }
                             
-                            html += '<p>'+localStorage.getItem('userreview')+'</p>';
+                            html += '<p>'+sessionStorage.getItem('userreview')+'</p>';
                             html += '</div>'; //stable star-rating in horizantal view   
                             html += '</div>';//card body close
                             html += '</div>';//card div close
@@ -255,7 +258,7 @@ $(".btn-success").click(function(){
                         }
                    
                     
-                            if(data.review_data[i].status=='approve'){
+                           
                                 
                             for(var count = 0; count < data.review_data.length; count++)
                         {
@@ -302,7 +305,7 @@ $(".btn-success").click(function(){
     
                             html += '</div>';
                         }
-                    }
+                    
                        
                        $('#review_content').html(html);
                         
@@ -346,5 +349,4 @@ subtotal();
 
     
 // shop notifications
-
 

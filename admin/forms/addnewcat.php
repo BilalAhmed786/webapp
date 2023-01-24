@@ -113,7 +113,7 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
                                 <tr>
                                     <td><?php echo $n++; ?></td>
                                     <td>
-                                        <div style=text-align:left><input id="checkItem" type="checkbox" name="delete[]"
+                                        <div style=text-align:left;margin-left:25px><input id="checkItem" type="checkbox" name="delete[]"
                                                 value="<?php echo $results['id']; ?>">
                                             <?php echo $results['category'] ?>
                                         </div>

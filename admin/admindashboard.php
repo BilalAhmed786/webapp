@@ -54,9 +54,9 @@
                 </a>
             </li>
             <li class="pure-menu-item">
-                <a href="#"
+                <a href="http://localhost/webapp/admin/forms/reviews.php"
                    class="pure-menu-link">
-                    Jobs
+                    product reviews
                 </a>
             </li>
             <li class="pure-menu-item">

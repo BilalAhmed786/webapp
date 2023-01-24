@@ -13,14 +13,15 @@ if(isset($_POST["rating_data"]))
 		':user_name'		=>	$_POST["user_name"],
 		':user_rating'		=>	$_POST["rating_data"],
 		':product_id'		=>	$_POST["product_id"],
+		':product_name'		=>	$_POST["product_name"],
 		':user_review'		=>	$_POST["user_review"],
 		':datetime'			=>	time()
 	);
 
 	$query = "
 	INSERT INTO review_table 
-	(user_name, user_rating, product_id, user_review, datetime) 
-	VALUES (:user_name, :user_rating, :product_id, :user_review, :datetime)
+	(user_name, user_rating, product_id, product_name, user_review, datetime) 
+	VALUES (:user_name, :user_rating, :product_id, :product_name, :user_review, :datetime)
 	";
 
 	$statement = $connect->prepare($query);
@@ -41,7 +42,7 @@ if(isset($_POST["rating_data"]))
 	$total_user_rating = 0;
 	$review_content = array();
 	
-		$query = "SELECT * FROM review_table WHERE `product_id`=$productid AND `status`='pending'";
+	$query = "SELECT * FROM review_table WHERE `product_id`=$productid AND `status`='approved'";
 		$result = $connect->query($query, PDO::FETCH_ASSOC);
 
 	foreach($result as $row)

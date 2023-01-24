@@ -198,6 +198,7 @@ while ($row = mysqli_fetch_array($resultset)) {
     			</div>
     		</div>
     	</div>
+		<div class="mt-5" id="review_session"></div>
     	<div class="mt-5" id="review_content"></div>
     </div>
 </body>
@@ -229,7 +230,11 @@ while ($row = mysqli_fetch_array($resultset)) {
 	        	</div>
                 <div class="form-group">
 	        		<input type="hidden" name="product_id" id="product_id" class="form-control" value="<?php echo $productid;?>"/>
-				</div>
+					</div>
+
+					<div class="form-group">
+	        		<input type="hidden" name="product_name" id="product_name" class="form-control" value="<?php echo $productname;?>"/>
+					</div>
               <div class="form-group text-center mt-4">
 	        		<button type="button" class="btn btn-primary" id="save_review">Submit</button>
 	        	</div>
