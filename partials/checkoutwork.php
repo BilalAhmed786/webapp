@@ -65,8 +65,7 @@ if (!isset($_SESSION)) {
             </div>
 
         </div>
-
-        <div class=colmn-2>
+      <div class=colmn-2>
             <h3>order details</h3>
             <table class="checkouttab">
                 <tr style=padding:5px>

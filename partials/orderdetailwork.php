@@ -33,20 +33,30 @@ if (isset($_POST['placeorder'])) {
 
 
     //order details in array
-    $productname = json_encode($_POST['productname']);
-    $productimage = json_encode($_POST['productimage']);
-    $productqty = json_encode($_POST['productqty']);
-    $costprice = json_encode($_POST['costprice']);
+    
     $subtotal = htmlspecialchars($_POST['subtotal']);
     $shipamount = htmlspecialchars($_POST['shipamount']);
     $nettotal = htmlspecialchars($_POST['nettotal']);
     $paymentmethod = htmlspecialchars($_POST['cashupon']);
+    for ($i = 0;count($_POST['productname'])> $i; $i++) {
+    $productname = $_POST['productname'][$i];
+    $productimage = $_POST['productimage'][$i];
+    $productqty = $_POST['productqty'][$i];
+    $costprice = $_POST['costprice'][$i];
+    $time = time();
+           
+       
+        $sql = "INSERT INTO order_details(productname, productqty, email, productimage, cost, subtotal, shipping, total, paymentmethod, date)
+    VALUES ('$productname', '$productqty','$email', '$productimage', '$costprice', '$subtotal', '$shipamount','$nettotal', '$paymentmethod', '$time')";
+        mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+    }
 
-    $sql = "INSERT INTO order_details(firstname, lastname, country, address, city, postcode, phone, email, 
- productname, productqty, productimage, cost, subtotal, shipping, total, paymentmethod	)
-    VALUES ('$firstname', '$lastname', '$country', '$streetaddress', '$city', '$postcode', '$phone', '$email',
-               '$productname', '$productqty', '$productimage', '$costprice', '$subtotal', '$shipamount','$nettotal', '$paymentmethod')";
-    mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
+
+    $sql = "INSERT INTO biller_info(firstname, lastname, country, address, city, postcode, phone, email, date)
+ VALUES ('$firstname', '$lastname', '$country', '$streetaddress', '$city', '$postcode', '$phone', '$email', '$time')";
+ mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
 }
 
 

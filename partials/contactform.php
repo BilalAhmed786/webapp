@@ -98,7 +98,7 @@ if (isset($_POST["register"])){
 <?php echo $phone_error;?>
 </div>
 <div class="form-group">
-<label style=display:block;text-align:center;padding-bottom:10px>Address (optional)</label>
+<label style=display:block;text-align:center;padding-bottom:10px> message(optional)</label>
 <textarea type ="textarea" class="form-control" name="user_textarea" ></textarea>
 </div>
 <br /><br />

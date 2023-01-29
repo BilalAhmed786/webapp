@@ -51,6 +51,8 @@ if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php"
   && $actual_link != "http://localhost/webapp/admin/forms/addnewcat.php"
   && $actual_link != "http://localhost/webapp/admin/forms/editcategory.php"
   && $actual_link != "http://localhost/webapp/admin/forms/reviews.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/customerorddet.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/customerbilldet.php"
   && $actual_link != "http://localhost/webapp/admin/forms/shipment.php"){
 echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/sitelogo.png"></a>';
 }else{
