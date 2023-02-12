@@ -36,11 +36,11 @@ body{
    /*header settings*/
 
    .header {
-    height: 100px;
+    height: 160px;
     background-color: rgba(221, 167, 167, 0.977);
   }
 .fixed-top{
-  height: 100px;
+  height: 160px;
   position: sticky;
   top: -1px;
   z-index: 9999;
@@ -48,13 +48,14 @@ body{
   }
 /* site logo */
 img.logoimage {
-  width: 85px;
+  width: 80px;
+  margin-left: 25px;
   padding-top: 20px;
   padding-left: 14px;
 }
 @media(max-width:770px){
 img.logoimage {
-width: 100px;
+width: 80px;
 float: right;
 padding-right: 12px;
 margin-top: -70px;
@@ -620,6 +621,7 @@ div.welcomenote{
     padding: 10px;
     text-align: center;
     background-color: #efefef;
+    margin-top:70px;
 }
 table, th, tr{
     text-align: center;

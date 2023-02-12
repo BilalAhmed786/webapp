@@ -65,8 +65,7 @@ if (isset($_POST['galleryimage'])) {
 
 
 
-<?php if(isset($productname)){
-    ?>
+
         <h2 style=width:100%>Add gallery images</h2>
             <form action="addgalleryimages.php" method="post" enctype="multipart/form-data">
 
@@ -97,12 +96,8 @@ if (isset($_POST['galleryimage'])) {
                      type="submit" name="galleryimage" value="update">
                     </div>
                     </form>
-<?php
-}
-else{
-        echo "<p style=color:red;background:lightgray>No product added yet</p>";
-    }
-    ?>   
+
+
     </div>
         <script src="../admin.js"></script>
         <script src="../../js/custom.js"></script>

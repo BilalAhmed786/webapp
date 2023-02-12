@@ -66,7 +66,7 @@ mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
   <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
-    Free shipping
+    Fix shipping
   </label>
 </div>
 <div class="form-check">

@@ -5,7 +5,7 @@ if(!isset($_SESSION))
     session_start(); 
 } 
 
-if(($_SESSION['role'])!=='admin'){
+if(!isset($_SESSION['role'])){
     header("Location: http://localhost/webapp/auth/login.php");
 }
 

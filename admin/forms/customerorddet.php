@@ -5,8 +5,7 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/Database/database.php');
 if (!isset($_SESSION)) {
     session_start();
 }
-
-if (($_SESSION['role']) !== 'admin') {
+if (($_SESSION['role']) !== 'admin'){
     header("Location: http://localhost/webapp/auth/login.php");
 }
 if (isset($_GET['id'])) {

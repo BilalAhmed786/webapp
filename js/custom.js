@@ -329,17 +329,19 @@ var qtyname=document.getElementsByClassName('qtyname');
 var itemprice=document.getElementsByClassName('itemprice');
 var total=document.getElementsByClassName('total');
 var shipment=document.getElementById('shipmentcharge');
+var currency=document.getElementById('currency');
 function subtotal(){
 grandtotal=0;
 for(i=0;i<qtyname.length;i++){
-total[i].innerText=parseFloat(itemprice[i].value)*qtyname[i].value+'Rs';
+total[i].innerText=parseFloat(itemprice[i].value)*qtyname[i].value;
 grandtotal=grandtotal+parseFloat(itemprice[i].value)*qtyname[i].value;
+
 }
 carttotal=grandtotal+~~parseFloat(shipment.value);
-document.getElementById("storagetotal").innerHTML='Rs.'+carttotal;
-document.getElementById("gtotal").innerHTML='Rs ' +grandtotal;
-document.getElementById("cartship").innerHTML='Rs '+grandtotal;
-document.getElementById("nettotal").innerHTML = 'Rs '+carttotal;              
+document.getElementById("storagetotal").innerHTML=+carttotal+currency.value;
+document.getElementById("gtotal").innerHTML=+grandtotal +currency.value;
+document.getElementById("cartship").innerHTML=+grandtotal;
+document.getElementById("nettotal").innerHTML =+carttotal+currency.value;              
 }
 subtotal();
 

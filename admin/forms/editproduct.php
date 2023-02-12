@@ -14,11 +14,19 @@ if (($_SESSION['role']) !== 'admin') {
             $productid = $_GET['id'];
         
         }
-        
+
        $sql = "SELECT * from  add_product where id=$productid";
         $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
         $results =mysqli_fetch_array($result);
-
+$productname = $results['productname'];
+$productdesc = $results['productdescripton'];
+$productshortdesc = $results['productshortdescription'];
+$productcat = $results['productcategory'];
+$inventory = $results['Inventory'];
+$saleprice = $results['saleprice'];
+$discountedprice = $results['discountedprice'];
+$productid = $results['id'];
+$productimage=$results['productimage']
         
 ?>
 
@@ -58,34 +66,35 @@ if (($_SESSION['role']) !== 'admin') {
                     <div style=margin-bottom:15px class="productname">
                         <label for="productname">productname</label>
                     </div>
-                    <input style=width:80% class="form-control" type="text" name="productname" value="<?php echo $results['productname']?>">
+                  
+                    <input style=width:80% class="form-control" type="text" name="productname" value="<?php echo $productname ?>">
                     <div style=margin-bottom:15px;margin-top:15px class="productdesc">
                         <label for="productname">productdesc</label>
                     </div>
-                    <textarea class="form-control" type="text" name="productdesc" value=""><?php echo $results['productdescripton']?></textarea>
+                    <textarea class="form-control" type="text" name="productdesc" value=""><?php echo $productdesc?></textarea>
                     <div style=margin-bottom:15px;margin-top:15px class="productshort">
                         <label for="productname">productshortdesc</label>
                     </div>
-                    <textarea class="form-control" type="text" name="productshort" value=""><?php echo $results['productshortdescription']?></textarea>
+                    <textarea class="form-control" type="text" name="productshort" value=""><?php echo $productshortdesc?></textarea>
                     <div style=margin-bottom:15px;margin-top:15px class="productcat">
                         <label for="productname">productcat</label>
                     </div>
-                    <input class="form-control" type="text" name="productcat" value="<?php echo $results['productcategory']?>">
+                    <input class="form-control" type="text" name="productcat" value="<?php echo $productcat?>">
 
                     <div style=margin-bottom:15px;margin-top:15px class="invent">
                         <label for="productname">inventory</label>
                     </div>
-                    <input class="form-control" type="text" name="inventory" value="<?php echo $results['Inventory']?>">
+                    <input class="form-control" type="text" name="inventory" value="<?php echo $inventory?>">
                     <div style=margin-bottom:15px;margin-top:15px class="sprice">
                         <label for="productname">saleprice</label>
                     </div>
-                    <input class="form-control" type="text" name="saleprice" value="<?php echo $results['saleprice']?>">
+                    <input class="form-control" type="text" name="saleprice" value="<?php echo $saleprice?>">
                     <div style=margin-bottom:15px;margin-top:15px class="dprice">
                         <label for="productname">discountprice</label>
                     </div>
-                    <input class="form-control" type="text" name="discountprice" value="<?php echo $results['discountedprice']?>">
-                    <input type="hidden" name="productid" value="<?php echo $results['id']?>">
-                    <input type="hidden" name="productdataname" value="<?php echo $results['productname']?>">
+                    <input class="form-control" type="text" name="discountprice" value="<?php echo (int)$discountedprice?>">
+                    <input type="hidden" name="productid" value="<?php echo $productid?>">
+                    <input type="hidden" name="productdataname" value="<?php echo $productname?>">
                 </br>
                     
                 </div>
@@ -94,9 +103,9 @@ if (($_SESSION['role']) !== 'admin') {
                 <div style=margin-left:100px; class=imagediv>
                     
                    <h3 style=margin-right:100px>product image</h3>
-                    <img style=width:150px;margin-bottom:80px;margin-top:20px;margin-left:120px src="<?php echo $results['productimage']?>" alt="">
-                    <input style=margin-left:120px class="form-control" type="file" name="productimage" value="<?php if($results['productimage']!='../../images/'){
-                        echo $results['productimage'];}?>"></br>
+                    <img style=width:150px;margin-bottom:80px;margin-top:20px;margin-left:120px src="<?php echo $productimage?>" alt="">
+                    <input style=margin-left:120px class="form-control" type="file" name="productimage" value="<?php if($productimage!='../../images/'){
+                        echo $productimage;}?>"></br>
                     <button style=margin-left:140px;margin-top:30px;color:white;background:red;padding:7px;cursor:pointer 
                     class="imageupdate" type=submit name="submit">Update</button>
                 </div>

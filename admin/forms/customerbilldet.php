@@ -117,7 +117,7 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
                 </table>
 <?php
 
-$sql = "SELECT * from  order_details where date='$orderno'";
+$sql = "SELECT * from  order_details,currency_tab where date='$orderno'";
 $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 $results = mysqli_fetch_array($result);
 
@@ -154,6 +154,8 @@ $results = mysqli_fetch_array($result);
                             
                             <?php
                             foreach ($result as $results) {
+
+                                 $currency=$results['currency'];
                                 ?>   
                            
                                 <tbody>
@@ -161,7 +163,7 @@ $results = mysqli_fetch_array($result);
                                     <td style=width:40%;><img style=width:40px;margin-left:-40px src="../<?php echo $results['productimage']?>"> <div><?php echo $results['productname']?><input type="hidden" name="proname[]" value="<?php echo $results['productname']?>"></div></td>
                                     <td><?php echo $results['cost'] ?></td>
                                     <td><?php echo $results['productqty'] ?><input type="hidden" name="proqty[]" value="<?php echo $results['productqty']?>"></td>
-                                    <td><?php echo (int)$results['cost'] * $results['productqty'] ?> Rs</td>
+                                    <td><?php echo (int)$results['cost'] * $results['productqty'].$currency?></td>
 
                                     </tr>
 
@@ -191,7 +193,7 @@ $results = mysqli_fetch_array($result);
 <tr style=padding:6px;margin-bottom:20px>
      <th style=padding:6px;margin-bottom:20px>Total</th>
         <td style=padding-left:80px;>
-        Rs.<?php echo $nettotal; ?>
+        <?php echo $results['currency'].'.'.$nettotal; ?>
         </td>
 </tr> 
 <tr>

@@ -1,3 +1,7 @@
+<?php
+require_once(dirname(dirname(__FILE__)) . '/Database/database.php');
+
+?>
 <div class="headercontaianer">
   <!-- Mobile view navmenu -->
 <div class="collapsemenu" >
@@ -40,9 +44,15 @@
 
 
 <div class="sitelogo">
-   <!-- for full url path --> 
+<!-- for full url path --> 
 <?php $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?>
 <?php
+
+$q = "SELECT * from site_info";
+$result = mysqli_query($conn, $q) or die(mysqli_error($conn));
+$results=mysqli_fetch_array($result);
+
+
 if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php" 
   && $actual_link != "http://localhost/webapp/admin/forms/allproducts.php"
   && $actual_link != "http://localhost/webapp/admin/forms/editproduct.php"
@@ -53,10 +63,21 @@ if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php"
   && $actual_link != "http://localhost/webapp/admin/forms/reviews.php"
   && $actual_link != "http://localhost/webapp/admin/forms/customerorddet.php"
   && $actual_link != "http://localhost/webapp/admin/forms/customerbilldet.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/users.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/edituser.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/currency.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/siteinfo.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/allproductedit.php"
   && $actual_link != "http://localhost/webapp/admin/forms/shipment.php"){
-echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/sitelogo.png"></a>';
+ 
+ 
+    
+
+echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/'.$results['sitelogo'].'"></a>';
+  echo '<p style=margin-left:15px;font-style:italic;width:120px> '.$results['tagline'].' </p>';
 }else{
-  echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../../images/sitelogo.png"></a>';
+  echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../../images/'.$results['sitelogo'].'"></a>';
+  echo '<p> '.$results['tagline'].' </p>';
 } 
 ?>
 </div>

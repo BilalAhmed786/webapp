@@ -81,8 +81,8 @@ while ($row = mysqli_fetch_array($resultset)) {
 <div class='proddesc'>
 <h3 class="prodname" ><?php echo $productname;?><h3>
 <p class="desc" style=text-align:left;font-size:15px;><?php echo $proddesc;?></p>
-<p class="desc" style=text-align:left;font-size:15px;><?php echo $prodprice;?></p>
-<p class="desc" style=color:red;text-align:left;font-size:18px;><s><?php echo $disctprice;?></s></p>
+<p class="desc" style=color:red;text-align:left;font-size:15px;><s><?php echo (int)$prodprice .'Rs';?></s></p>
+<p class="desc" style=text-align:left;font-size:18px;><?php echo (int)$disctprice.'Rs';?></p>
 
 <?php if($inventorystatus==0){
 	echo "<p style=color:red;text-align:left;font-size:15px;>Out of stock</p>";
@@ -105,7 +105,8 @@ while ($row = mysqli_fetch_array($resultset)) {
 								<input type="hidden" name="hidden_id" value="<?php echo $productid;?>">
                                 <input type="hidden" name="image" value="<?php echo $proimage;?>">
                                 <input type="hidden" name="hidden_qty" value="<?php echo $inventorystatus;?>">
-                                <input type="hidden" name="hidden_price" value="<?php echo $prodprice; ?>">
+                                <input type="hidden" name="hidden_price" value="<?php echo (int)$prodprice; ?>">
+								<input type="hidden" name="discounted_price" value="<?php echo (int)$disctprice; ?>">
                                 <input type="submit" name="add" style="margin-top: 5px;" onclick="reviewcart()" class="btn btn-success" value="Add to Cart"></br></br>
                                 <a id="viewcart" style=color:red;font-size:15px;display:none;  href="cart.php">view cart</a>   
                             </div>

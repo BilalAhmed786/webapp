@@ -12,6 +12,13 @@ if(($_SESSION['role'])!=='admin'){
 }
 if (isset($_GET['id'])){
     $productid = $_GET['id'];
+
+    $sql = "SELECT * from  product_gallery where id=$productid";
+    $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+    $results = mysqli_fetch_array($result);
+    unlink($results['productgallery']);
+
+
     $sql = "DELETE from  product_gallery where id=$productid";
     $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 }
@@ -19,6 +26,14 @@ if (isset($_GET['id'])){
 if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
     for($i=0;$i<count($_POST['delete']);$i++){
         $deleteitems = $_POST['delete'][$i];
+        
+        $sql = "SELECT * from  product_gallery where id=$deleteitems";
+        $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+        while ($results = mysqli_fetch_array($result)) {
+            unlink($results['productgallery']);
+        }
+        
+
         $sql = "DELETE from  product_gallery where id=$deleteitems";
         $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
         }
@@ -37,6 +52,7 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
     <link rel="stylesheet" href="../admin.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="sortable.js"></script>
 </head>
 <body>
 <div class="topbar">
@@ -64,7 +80,7 @@ if($results->num_rows>0) {
 <div style=width:100% class="shopdisplay"> 
 <h2 style=width:100%>product image gallery</h2>
 <form method="post" action="productimggallery.php">  
-<table style=width:100%>
+<table class="sortable" border="0" cellpadding="5" class='sortable' style=width:100%>
 <thead>
 <th><input id='checkAll' type="checkbox"/>   <button 
 style=color:white;background:red;padding:8px;border:none;cursor:pointer;
@@ -74,19 +90,20 @@ style=color:white;background:red;padding:8px;border:none;cursor:pointer;
 <th>productname</th>
 <th>images</th>
 <th>delete</th>
-<th>edit</th>
+
   </tr>
+
     </thead>
  <?php
        foreach ($results as $result) {
 ?>   
 <tbody> 
-<tr>
-<td><?php echo $n++; ?></td>
-<td><input id="checkItem" type="checkbox" name="delete[]" value="<?php echo $result['id'];?>">  <?php echo $result['productname'] ?></td>
+<tr style=padding:15px>
+<td style=padding:15px><?php echo $n++; ?></td>
+<td style=margin:auto;padding:auto><input id="checkItem" type="checkbox" name="delete[]" value="<?php echo $result['id'];?>">  <?php echo $result['productname'] ?></td>
 <td><img style=width:80px src="<?php echo $result['productgallery']?>"></td>
 <td><a style=color:red;text-decoration:none href="productimggallery.php?id=<?php echo $result['id'] ?>">Delete</a></td>
-<td><a style=color:red;text-decoration:none  href=#>Edit</a></td>
+
    </tr>
     </tbody>
     <?php
@@ -110,5 +127,6 @@ style=color:white;background:red;padding:8px;border:none;cursor:pointer;
      $('input:checkbox').not(this).prop('checked', this.checked);
  });
 </script>
+<script src="sortable.js"></script>
 </body>
 </html>
