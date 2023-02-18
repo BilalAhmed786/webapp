@@ -31,14 +31,26 @@ if (isset($_POST['profileupdate'])) {
 
 
 
-if(isset($_POST['deleteaccount'])){
+if(isset($_GET['email'])){
 
-    $email=$_POST['email'];
+   
+$email=$_GET['email'];
    
 
     $q = "DELETE from users_role where email ='$email'";
     $result = mysqli_query($conn, $q) or die(mysqli_error($conn));
     
+
+    $q = "DELETE from customers_order where email ='$email'";
+    $result = mysqli_query($conn, $q) or die(mysqli_error($conn));
+
+
+    $q = "DELETE from customer_billinfo where email ='$email'";
+    $result = mysqli_query($conn, $q) or die(mysqli_error($conn));
+
+
+    
+
     unset($_SESSION['email']);
     unset($_SESSION['username']);
     session_destroy();
@@ -128,16 +140,23 @@ if(isset($_POST['deleteaccount'])){
                     <label for="address"><b>Address</b><br>
                         <P style=margin:auto;padding-top:10px;margin-bottom:50px;width:30%><?php echo $results1['address'] ?></p>
                 </div>
-            <form method="post" action="profile.php" >
-            <input type="hidden" name="email" value="<?php echo $results1['email']; ?>">   
-            <input style=color:white;background:red;padding:5px;border:none;cursor:pointer type="submit" name="deleteaccount" value="Delete Account">
-               
-                
-            </form>
+            
+            <a style="background:red;color:white;padding:8px;text-decoration:none" 
+            href="http://localhost/webapp/customer/profile.php?email=<?php echo $results1['email']; ?>"
+             onclick="return confirm('Are you sure? All of your data will be wiped');">Delete Account</a>
+           
             </div>
         </div>
 
     </div>
+
+<script>
+$("#wipedata").submit(function(){
+  alert("you are submitting" + $(this).serialize());
+});
+
+</script>
+
     <script src="../auth.js"></script>
     <script src="../js/custom.js"></script>
 </body>
