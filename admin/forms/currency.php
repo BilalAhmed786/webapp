@@ -14,7 +14,7 @@ if (($_SESSION['role']) !== 'admin') {
     
 if (isset($_POST['submit']) && $_POST['currency']!='') {
 $currency=$_POST['currency'];
-    $q = "UPDATE currency_tab SET currency='$currency' where id =5";
+    $q = "UPDATE currency_tab SET currency='$currency' where currency_id =5";
     $result = mysqli_query($conn, $q) or die(mysqli_error($conn));
 $currsuccess= "<p style=color:green>updated</p>";
 }elseif(isset($_POST['submit'])){

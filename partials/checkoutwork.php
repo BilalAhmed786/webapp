@@ -100,6 +100,16 @@ if (!isset($_SESSION)) {
         if (isset($_POST['shipamount'])) {
             $shipamount=((int)$_POST['shipamount']);
             $nettotal = $total + $shipamount;
+
+            //for currency
+            
+            $query = "SELECT * FROM currency_tab"; 
+            $result = mysqli_query($conn, $query);
+            $results=mysqli_fetch_array($result);
+            $currency=$results['currency'];
+
+
+
             
         }
    
@@ -116,7 +126,7 @@ if (!isset($_SESSION)) {
                 </tr>
                 <tr>
                 <td style=background:#e8e6e6;padding:4px>total</td>
-                <td><?php echo $nettotal?><?php echo $_SESSION['currency']?><input id="nettotal" type=hidden name="nettotal" value="<?php echo $nettotal?>"></td>
+                <td><?php echo $nettotal?><?php echo $currency?><input id="nettotal" type=hidden name="nettotal" value="<?php echo $nettotal?>"></td>
                 </tr>
             </table>
             

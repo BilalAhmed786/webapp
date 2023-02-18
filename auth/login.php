@@ -61,7 +61,8 @@ elseif($loginresult['role']!='admin')
 	$_SESSION['username']=$loginresult['name']; //for welcome Login user
 	$_SESSION['email'] = $loginresult['email'] ;
 	$_SESSION['role']=$loginresult['role'];//session use in adminpanel
-	header("Location: http://localhost/webapp/pages/home.php");
+	echo '<script>window.location="http://localhost/webapp/customer/customer.php?userid='.$loginresult['id'].'"</script>';
+
 	
 }else{
 	
@@ -72,7 +73,7 @@ elseif($loginresult['role']!='admin')
 	$_SESSION['username']=$loginresult['name'];
 	$_SESSION['email'] = $loginresult['email'] ;
 	$_SESSION['role']=$loginresult['role'];//session use in adminpanel
-	header("Location: http://localhost/webapp/admin/controlpanel.php");
+	echo '<script>window.location="http://localhost/webapp/admin/controlpanel.php?userid='.$loginresult['id'].'"</script>';
  }
 }
 

@@ -27,6 +27,19 @@ if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
    }
         
 }
+
+if(isset($_POST['role-btn']) && isset($_POST['delete']) ){
+
+    for($i=0;$i<count($_POST['delete']);$i++){
+        $role=$_POST['role'];
+        $usersitems = $_POST['delete'][$i];
+    $sql = "update users_role set role='$role' where id=$usersitems";
+    $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +85,24 @@ if($results->num_rows>0) {
 <thead>
 <th><input id='checkAll' type="checkbox"/>   <button 
 style=color:white;background:red;padding:8px;border:none;cursor:pointer;
- name="del-btn" class="saifidelbtn">Delete</button></th>     
-<tr>
+ name="del-btn" class="saifidelbtn">Delete</button></th> 
+ 
+ <form method="post" action="users.php">
+ <th><select name="role" id="">
+<option value="subscriber"<?php if(isset($_POST['role']) && $_POST['role']=='subscriber') echo 'selected="selected"'?>>subscriber</option>
+<option value="admin" <?php if(isset($_POST['role']) && $_POST['role']=='admin') echo 'selected="selected"'?>>admin</option>
+<option value="customer" <?php if(isset($_POST['role']) && $_POST['role']=='customer') echo 'selected="selected"'?>>customer</option>
+ </select>
+ <button 
+style=color:white;background:red;padding:8px;border:none;cursor:pointer;
+ name="role-btn" type=submit class="saifidelbtn">Role</button></th> 
+ </form>    
+ 
+ <tr>
 <th>Sr#</th>
 <th>Name</th>
 <th>Email</th>
 <th>Role</th>
-<th>Edit</th>
 <th>Delete</th>
   </tr>
     </thead>
@@ -90,7 +114,7 @@ style=color:white;background:red;padding:8px;border:none;cursor:pointer;
 <td style=text-align:left><?php echo $result['email']?></td>
 <td><?php echo $result['role']?></td>
 <td><a style=color:red;text-decoration:none href="users.php?id=<?php echo $result['id'] ?>">Delete</a></td>
-<td><a style=color:red;text-decoration:none  href="edituser.php?id=<?php echo $result['id'] ?>">Edit</a></td>
+
    </tr>
     </tbody>
     <?php endforeach; ?>
@@ -111,6 +135,7 @@ style=color:white;background:red;padding:8px;border:none;cursor:pointer;
  $("#checkAll").click(function () {
      $('input:checkbox').not(this).prop('checked', this.checked);
  });
+
 </script>
 </body>
 </html>

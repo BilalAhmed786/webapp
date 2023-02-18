@@ -30,6 +30,9 @@ if(isset($_SESSION['username']) && !empty($_SESSION['username']) )
 <?php if(($_SESSION['role'])=='admin'){
      echo '<a href="http://localhost/webapp/admin/controlpanel.php">Dashboard</a>
            <a href="http://localhost/webapp/auth/logout.php">Logout</a>';
+}elseif(($_SESSION['role'])=='subscriber'){
+    echo '<a href="http://localhost/webapp/customer/customer.php">Dashboard</a>
+           <a href="http://localhost/webapp/auth/logout.php">Logout</a>';
 }
      
    elseif(($_SESSION['role'])!='admin'){

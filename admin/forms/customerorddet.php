@@ -49,6 +49,10 @@ if ($reviewstatus != '') {
         $sql = "UPDATE biller_info SET status='$reviewstatus' where date=$orderid";
         $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 
+//for status view for customers
+        $sql = "UPDATE customer_billinfo SET status='$reviewstatus' where date=$orderid";
+        $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
     }
 
     if (($reviewstatus == "complete" && $actualstatus == "return") || ($reviewstatus == "complete" && $actualstatus == "failed")) {

@@ -32,9 +32,9 @@ while ($rowgal = mysqli_fetch_array($resultgal)) {
 //for product detail and reviews
 $imageid=$_GET['id'];
 $_SESSION['getid']=$imageid;
-$sql = "SELECT * from add_product where id=$imageid";
+$sql = "SELECT * from add_product,currency_tab where id=$imageid";
 $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-while ($row = mysqli_fetch_array($resultset)) {
+	$row = mysqli_fetch_array($resultset);
 	$productid = $row['id'];
 	$productname = $row['productname'];
     $image = $row['productimage'];
@@ -42,9 +42,10 @@ while ($row = mysqli_fetch_array($resultset)) {
 	$prodprice = $row['saleprice'];
 	$disctprice = $row['discountedprice'];
 	$inventorystatus = $row['Inventory'];
+	$currency = $row['currency'];
 	$proimage = substr($image, 3);
 	
-}
+
 
 ?>
 
@@ -81,8 +82,8 @@ while ($row = mysqli_fetch_array($resultset)) {
 <div class='proddesc'>
 <h3 class="prodname" ><?php echo $productname;?><h3>
 <p class="desc" style=text-align:left;font-size:15px;><?php echo $proddesc;?></p>
-<p class="desc" style=color:red;text-align:left;font-size:15px;><s><?php echo (int)$prodprice .'Rs';?></s></p>
-<p class="desc" style=text-align:left;font-size:18px;><?php echo (int)$disctprice.'Rs';?></p>
+<p class="desc" style=color:red;text-align:left;font-size:15px;><s><?php echo (int)$prodprice.$currency?></s></p>
+<p class="desc" style=text-align:left;font-size:18px;><?php echo (int)$disctprice.$currency;?></p>
 
 <?php if($inventorystatus==0){
 	echo "<p style=color:red;text-align:left;font-size:15px;>Out of stock</p>";

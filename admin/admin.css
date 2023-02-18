@@ -2,7 +2,8 @@
 /*admin sidbarmenu settings*/
 .adminsidenav {
   display: block;
-  background: yellowgreen;
+  background: rgb(219, 240, 179);
+  height:40rem;
 }
 .pure-menu-heading {
       color: #308d46;
@@ -160,7 +161,36 @@ input#NoflexRadioDefault2 {
 }
 
 
+/* admin welcome noye*/
 
+
+.thrif h1{
+  color:black;
+  text-align:center;
+  margin: auto;
+  padding: auto;
+  font-size:15px;
+	font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing:-0.2px; /* Adjust as needed */
+  animation: 
+    typing 4s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
 
 
 

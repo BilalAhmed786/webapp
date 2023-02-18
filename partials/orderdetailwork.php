@@ -45,17 +45,33 @@ if (isset($_POST['placeorder'])) {
     $costprice = $_POST['costprice'][$i];
     $time = time();
            
-       
+        //for admin record
         $sql = "INSERT INTO order_details(productname, productqty, email, productimage, cost, subtotal, shipping, total, paymentmethod, date)
     VALUES ('$productname', '$productqty','$email', '$productimage', '$costprice', '$subtotal', '$shipamount','$nettotal', '$paymentmethod', '$time')";
         mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+    
+      //for customer record
+        $sql = "INSERT INTO customers_order(productname, productqty, email, productimage, cost, subtotal, shipping, total, paymentmethod, date)
+    VALUES ('$productname', '$productqty','$email', '$productimage', '$costprice', '$subtotal', '$shipamount','$nettotal', '$paymentmethod', '$time')";
+        mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+    
+    
+    
+    
     }
 
 
-
+//for admin record
     $sql = "INSERT INTO biller_info(firstname, lastname, country, address, city, postcode, phone, email, date)
  VALUES ('$firstname', '$lastname', '$country', '$streetaddress', '$city', '$postcode', '$phone', '$email', '$time')";
  mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
+
+//for customer record
+$sql = "INSERT INTO customer_billinfo(firstname, lastname, country, address, city, postcode, phone, email, date)
+VALUES ('$firstname', '$lastname', '$country', '$streetaddress', '$city', '$postcode', '$phone', '$email', '$time')";
+mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
 
 }
 

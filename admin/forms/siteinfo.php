@@ -94,6 +94,7 @@ $results=mysqli_fetch_array($result);
             <label for="tagline"><b>tagline</b></label></br>
             </div>
             <div style=margin-top:10px class="form-control">
+            <input style=width:50%;text-align:center type="text" name="tagline" value="<?php echo $results['tagline']?>">
             </div>
             <div style=margin-top:10px class="form-control">
             <input style=color:white;background:red;padding:8px;border:none;cursor:pointer;margin-bottom:100px type="submit" name="updatesiteinfo" value="update">

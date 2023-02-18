@@ -23,7 +23,6 @@ if (isset($_GET['productname'])) {
 if (isset($_POST['del-btn']) && isset($_POST['delete'])) {
     for ($i = 0; $i < count($_POST['delete']); $i++) {
         $deleteitems = $_POST['delete'][$i];
-        print_r($deleteitems);
         $sql = "DELETE from  add_product where productname='$deleteitems'";
         $result = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
         $sql = "DELETE from  product_gallery where productname='$deleteitems'";

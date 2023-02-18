@@ -68,16 +68,18 @@ if($actual_link != "http://localhost/webapp/admin/forms/addproduct.php"
   && $actual_link != "http://localhost/webapp/admin/forms/currency.php"
   && $actual_link != "http://localhost/webapp/admin/forms/siteinfo.php"
   && $actual_link != "http://localhost/webapp/admin/forms/allproductedit.php"
-  && $actual_link != "http://localhost/webapp/admin/forms/shipment.php"){
+  && $actual_link != "http://localhost/webapp/admin/forms/shipment.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/adminprofile.php"
+  && $actual_link != "http://localhost/webapp/admin/forms/retypepassword.php"){
  
  
     
 
 echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../images/'.$results['sitelogo'].'"></a>';
-  echo '<p style=margin-left:15px;font-style:italic;width:120px> '.$results['tagline'].' </p>';
+  echo '<p style=display:block;margin-left:15px;font-style:italic;width:120px;> '.$results['tagline'].' </p>';
 }else{
   echo '<a href="http://localhost/webapp/pages/home.php" ><img  class="logoimage" src="../../images/'.$results['sitelogo'].'"></a>';
-  echo '<p> '.$results['tagline'].' </p>';
+  echo '<p style=margin-left:15px;font-style:italic;width:120px> '.$results['tagline'].' </p>';
 } 
 ?>
 </div>
