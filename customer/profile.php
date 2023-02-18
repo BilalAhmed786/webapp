@@ -31,6 +31,24 @@ if (isset($_POST['profileupdate'])) {
 
 
 
+if(isset($_POST['deleteaccount'])){
+
+    $email=$_POST['email'];
+   
+
+    $q = "DELETE from users_role where email ='$email'";
+    $result = mysqli_query($conn, $q) or die(mysqli_error($conn));
+    
+    unset($_SESSION['email']);
+    unset($_SESSION['username']);
+    session_destroy();
+    
+    echo '<script>window.location="http://localhost/webapp/pages/home.php"</script>';
+
+}
+
+
+
 
 ?>
 
@@ -87,6 +105,7 @@ if (isset($_POST['profileupdate'])) {
 
 
                 <div style=padding:20px class=form-control>
+                    <h1> Profile</h1>
                     <label for="name"><b>Name</b></label><br>
                     <p style=margin-top:10px><?php echo $results1['firstname'] . ' ' . $results1['lastname'] ?></p>
            
@@ -109,7 +128,12 @@ if (isset($_POST['profileupdate'])) {
                     <label for="address"><b>Address</b><br>
                         <P style=margin:auto;padding-top:10px;margin-bottom:50px;width:30%><?php echo $results1['address'] ?></p>
                 </div>
-
+            <form method="post" action="profile.php" >
+            <input type="hidden" name="email" value="<?php echo $results1['email']; ?>">   
+            <input style=color:white;background:red;padding:5px;border:none;cursor:pointer type="submit" name="deleteaccount" value="Delete Account">
+               
+                
+            </form>
             </div>
         </div>
 
